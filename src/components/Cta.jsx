@@ -1,109 +1,37 @@
-import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
 
 export default function Cta() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState('')
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setStatus('sending')
-    
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      
-      if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', message: '' })
-      } else {
-        setStatus('error')
-      }
-    } catch (err) {
-      setStatus('error')
-    }
-  }
-
   return (
     <section className="cta-wrap" id="hire">
       <div className="wrap">
-        <div className="cta-grid">
-          <ScrollReveal baseOpacity={0.15} enableBlur={true} blurStrength={6}>
-            <div className="cta-info">
+        <ScrollReveal translateY={30} baseRotation={-1} baseOpacity={0.2}>
+          <div className="cta-grid" style={{ gridTemplateColumns: '1fr', textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+            <div className="cta-info" style={{ textAlign: 'center' }}>
               <h3>Open to full-time &amp; internship opportunities 🚀</h3>
-              <p>
-                I'm a CSE student at GLBITM (Class of '28) actively looking for <strong>SDE internships</strong> and <strong>entry-level roles</strong> in backend development, full-stack engineering, or cybersecurity. If you think I'd be a good fit for your team, let's talk!
+              <p style={{ maxWidth: '640px', margin: '0 auto 28px' }}>
+                I'm a CSE student at GLBITM (Class of '28) actively looking for <strong>SDE internships</strong> and <strong>entry-level roles</strong> in backend development, full-stack engineering, or cybersecurity. Reach out directly via email or connect with me on LinkedIn!
               </p>
-              <a href="https://www.linkedin.com/in/naman-saini-b19967333" target="_blank" rel="noreferrer" className="btn inline-btn" style={{ background: 'var(--yellow)' }}>
-                View LinkedIn Profile
-              </a>
-            </div>
-          </ScrollReveal>
-
-          <div className="cta-form-container">
-            {status === 'success' ? (
-              <div className="form-success">
-                <h4>✓ Message Sent!</h4>
-                <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
-                <button onClick={() => setStatus('')} className="btn">Send another</button>
+              <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a 
+                  href="mailto:saininaman643@gmail.com" 
+                  className="btn inline-btn" 
+                  style={{ background: 'var(--yellow)' }}
+                >
+                  ✉️ saininaman643@gmail.com
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/naman-saini-b19967333" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="btn inline-btn" 
+                  style={{ background: 'var(--blue)', color: '#fff' }}
+                >
+                  View LinkedIn Profile ↗
+                </a>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your name"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows="4"
-                    placeholder="Hi Naman, we'd love to have you..."
-                  ></textarea>
-                </div>
-                <button type="submit" className="btn submit-btn" disabled={status === 'sending'}>
-                  {status === 'sending' ? 'Sending...' : 'Send Message'}
-                </button>
-                {status === 'error' && (
-                  <p className="form-error">❌ Something went wrong. Please try again.</p>
-                )}
-              </form>
-            )}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )
