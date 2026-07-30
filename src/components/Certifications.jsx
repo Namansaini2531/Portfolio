@@ -1,3 +1,5 @@
+import ScrollReveal from './ScrollReveal'
+
 const CERTIFICATIONS = [
   {
     id: "cert-1",
@@ -78,15 +80,17 @@ export default function Certifications() {
       <div className="wrap">
         
         {/* Section Title */}
-        <div className="endorsement-title-row" style={{ marginBottom: '50px' }}>
-          <h2 className="endorsement-main-title">
-            <span className="endorsement-badge" style={{ background: 'var(--yellow)', transform: 'rotate(1.5deg)' }}>CREDENTIALS</span>{' '}
-            CERTIFICATIONS & <span className="hl-peers" style={{ background: 'var(--blue)' }}>BADGES</span>
-          </h2>
-          <p className="endorsement-subtitle">
-            Industry recognized certifications in Artificial Intelligence, Cloud, Cybersecurity, and Immersive Tech.
-          </p>
-        </div>
+        <ScrollReveal baseOpacity={0.15} enableBlur={true} blurStrength={6}>
+          <div className="endorsement-title-row" style={{ marginBottom: '50px' }}>
+            <h2 className="endorsement-main-title">
+              <span className="endorsement-badge" style={{ background: 'var(--yellow)', transform: 'rotate(1.5deg)' }}>CREDENTIALS</span>{' '}
+              CERTIFICATIONS & <span className="hl-peers" style={{ background: 'var(--blue)' }}>BADGES</span>
+            </h2>
+            <p className="endorsement-subtitle">
+              Industry recognized certifications in Artificial Intelligence, Cloud, Cybersecurity, and Immersive Tech.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Grid */}
         <div className="cert-grid">

@@ -1,3 +1,5 @@
+import ScrollReveal from './ScrollReveal'
+
 const PROJECTS = [
   {
     label: 'Internship Project',
@@ -32,15 +34,17 @@ export default function Portfolio() {
     <section className="portfolio" id="portfolio">
       <div className="star pink" style={{ width: 44, height: 44, top: 20, right: '6%', transform: 'rotate(18deg)' }}></div>
       <div className="wrap">
-        <div className="portfolio-header">
-          <div className="portfolio-badge">PROJECTS</div>
-          <h2>
-            FEATURED <span className="hl-portfolio">WORKS</span> <span className="tile-icon">✦</span>
-          </h2>
-          <p className="portfolio-subtitle">
-            A showcase of software engineering, web applications, and system design projects.
-          </p>
-        </div>
+        <ScrollReveal baseOpacity={0.15} enableBlur={true} blurStrength={6}>
+          <div className="portfolio-header">
+            <div className="portfolio-badge">PROJECTS</div>
+            <h2>
+              FEATURED <span className="hl-portfolio">WORKS</span> <span className="tile-icon">✦</span>
+            </h2>
+            <p className="portfolio-subtitle">
+              A showcase of software engineering, web applications, and system design projects.
+            </p>
+          </div>
+        </ScrollReveal>
         <div className="port-grid">
           {PROJECTS.map((p, i) => {
             const CardContent = (

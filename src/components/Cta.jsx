@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ScrollReveal from './ScrollReveal'
 
 export default function Cta() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -36,15 +37,17 @@ export default function Cta() {
     <section className="cta-wrap" id="hire">
       <div className="wrap">
         <div className="cta-grid">
-          <div className="cta-info">
-            <h3>Open to full-time &amp; internship opportunities 🚀</h3>
-            <p>
-              I'm a CSE student at GLBITM (Class of '28) actively looking for <strong>SDE internships</strong> and <strong>entry-level roles</strong> in backend development, full-stack engineering, or cybersecurity. If you think I'd be a good fit for your team, let's talk!
-            </p>
-            <a href="https://www.linkedin.com/in/naman-saini-b19967333" target="_blank" rel="noreferrer" className="btn inline-btn" style={{ background: 'var(--yellow)' }}>
-              View LinkedIn Profile
-            </a>
-          </div>
+          <ScrollReveal baseOpacity={0.15} enableBlur={true} blurStrength={6}>
+            <div className="cta-info">
+              <h3>Open to full-time &amp; internship opportunities 🚀</h3>
+              <p>
+                I'm a CSE student at GLBITM (Class of '28) actively looking for <strong>SDE internships</strong> and <strong>entry-level roles</strong> in backend development, full-stack engineering, or cybersecurity. If you think I'd be a good fit for your team, let's talk!
+              </p>
+              <a href="https://www.linkedin.com/in/naman-saini-b19967333" target="_blank" rel="noreferrer" className="btn inline-btn" style={{ background: 'var(--yellow)' }}>
+                View LinkedIn Profile
+              </a>
+            </div>
+          </ScrollReveal>
 
           <div className="cta-form-container">
             {status === 'success' ? (

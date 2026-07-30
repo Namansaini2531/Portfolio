@@ -1,3 +1,5 @@
+import ScrollReveal from './ScrollReveal'
+
 const QUOTES = [
   { 
     quote: '"It was a great experience working with Naman. He proved to be an amazing teammate and a very effective team lead during our project."',
@@ -26,15 +28,17 @@ export default function Testimonials() {
   return (
     <section className="testimonials" id="testimonials">
       <div className="wrap">
-        <div className="endorsement-title-row">
-          <h2 className="endorsement-main-title">
-            <span className="endorsement-badge">ENDORSEMENTS</span>{' '}
-            HERE&rsquo;S WHAT MY <span className="hl-peers">PEERS & LEADS</span> SAY ✍️
-          </h2>
-          <p className="endorsement-subtitle">
-            Feedback from Product Lead, Rotaract club members, and academic collaborators.
-          </p>
-        </div>
+        <ScrollReveal baseOpacity={0.15} enableBlur={true} blurStrength={6}>
+          <div className="endorsement-title-row">
+            <h2 className="endorsement-main-title">
+              <span className="endorsement-badge">ENDORSEMENTS</span>{' '}
+              HERE&rsquo;S WHAT MY <span className="hl-peers">PEERS & LEADS</span> SAY ✍️
+            </h2>
+            <p className="endorsement-subtitle">
+              Feedback from Product Lead, Rotaract club members, and academic collaborators.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="test-stack">
           {QUOTES.map((q, i) => (

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ScrollReveal from './ScrollReveal'
 
 const CATEGORIES = [
   'All',
@@ -36,17 +37,19 @@ export default function Skills() {
   return (
     <section className="skills-section" id="skills">
       <div className="wrap">
-        <div className="skills-header">
-          <div className="skills-title-row">
-            <span className="tech-badge">TECHNICAL PROFICIENCY</span>
-            <h2 className="skills-main-title">
-              SKILLS & <span className="hl-toolkit">TOOLKIT</span>
-            </h2>
+        <ScrollReveal baseOpacity={0.15} enableBlur={true} blurStrength={6}>
+          <div className="skills-header">
+            <div className="skills-title-row">
+              <span className="tech-badge">TECHNICAL PROFICIENCY</span>
+              <h2 className="skills-main-title">
+                SKILLS & <span className="hl-toolkit">TOOLKIT</span>
+              </h2>
+            </div>
+            <p className="skills-subtitle">
+              Core programming languages, data structures & algorithm mastery, developer tools & Gen AI workflow tools.
+            </p>
           </div>
-          <p className="skills-subtitle">
-            Core programming languages, data structures & algorithm mastery, developer tools & Gen AI workflow tools.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Filters */}
         <div className="skills-filters">
