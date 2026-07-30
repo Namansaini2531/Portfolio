@@ -73,14 +73,24 @@ export default function Portfolio() {
               </>
             )
 
-            return p.link ? (
-              <a href={p.link} target="_blank" rel="noreferrer" className="port-card" key={i} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-                {CardContent}
-              </a>
-            ) : (
-              <div className="port-card" key={i}>
-                {CardContent}
-              </div>
+            return (
+              <ScrollReveal 
+                key={i} 
+                baseRotation={i % 2 === 0 ? -3 : 3} 
+                translateY={50} 
+                baseOpacity={0.2} 
+                blurStrength={6}
+              >
+                {p.link ? (
+                  <a href={p.link} target="_blank" rel="noreferrer" className="port-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                    {CardContent}
+                  </a>
+                ) : (
+                  <div className="port-card">
+                    {CardContent}
+                  </div>
+                )}
+              </ScrollReveal>
             )
           })}
         </div>

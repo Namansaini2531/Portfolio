@@ -94,30 +94,32 @@ export default function Certifications() {
 
         {/* Grid */}
         <div className="cert-grid">
-          {CERTIFICATIONS.map((cert) => (
-            <div key={cert.id} className="cert-card">
-              <div className="cert-card-top">
-                <div className="cert-icon-container">
-                  {cert.icon}
+          {CERTIFICATIONS.map((cert, index) => (
+            <ScrollReveal key={cert.id} baseRotation={index % 2 === 0 ? -2 : 2} translateY={35} baseOpacity={0.2} blurStrength={6}>
+              <div className="cert-card">
+                <div className="cert-card-top">
+                  <div className="cert-icon-container">
+                    {cert.icon}
+                  </div>
+                  <span className="cert-year-badge">{cert.year}</span>
                 </div>
-                <span className="cert-year-badge">{cert.year}</span>
+                
+                <h3 className="cert-title-text">{cert.title}</h3>
+                
+                <div className="cert-divider"></div>
+                
+                <div className="cert-card-bottom">
+                  <span className="cert-issuer-text">{cert.issuer}</span>
+                  <span className="cert-verified-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '4px' }}>
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    Verified
+                  </span>
+                </div>
               </div>
-              
-              <h3 className="cert-title-text">{cert.title}</h3>
-              
-              <div className="cert-divider"></div>
-              
-              <div className="cert-card-bottom">
-                <span className="cert-issuer-text">{cert.issuer}</span>
-                <span className="cert-verified-badge">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '4px' }}>
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  Verified
-                </span>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

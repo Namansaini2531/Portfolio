@@ -66,19 +66,21 @@ export default function Skills() {
 
         {/* Grid */}
         <div className="skills-grid">
-          {filteredSkills.map(skill => (
-            <div className="skill-card" key={skill.name}>
-              <div className="skill-card-top">
-                <div className="skill-icon-badge">{skill.icon}</div>
-                <span className="skill-category-badge">{skill.category}</span>
+          {filteredSkills.map((skill, index) => (
+            <ScrollReveal key={skill.name} baseRotation={index % 2 === 0 ? -2 : 2} translateY={35} baseOpacity={0.2} blurStrength={5}>
+              <div className="skill-card">
+                <div className="skill-card-top">
+                  <div className="skill-icon-badge">{skill.icon}</div>
+                  <span className="skill-category-badge">{skill.category}</span>
+                </div>
+                <h3 className="skill-name">{skill.name}</h3>
+                <div className="skill-divider"></div>
+                <div className="skill-card-bottom">
+                  <span className="skill-level-label">Level:</span>
+                  <span className="skill-level-badge">{skill.level}</span>
+                </div>
               </div>
-              <h3 className="skill-name">{skill.name}</h3>
-              <div className="skill-divider"></div>
-              <div className="skill-card-bottom">
-                <span className="skill-level-label">Level:</span>
-                <span className="skill-level-badge">{skill.level}</span>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

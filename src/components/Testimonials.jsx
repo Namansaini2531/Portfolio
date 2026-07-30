@@ -42,19 +42,21 @@ export default function Testimonials() {
 
         <div className="test-stack">
           {QUOTES.map((q, i) => (
-            <div className={`quote-card sticky-note-card ${q.tilt}`} key={i}>
-              <div className="tape-strip"></div>
-              <div className="quote-mark">99</div>
-              <p className="hand">{q.quote}</p>
-              <div className="quote-divider"></div>
-              <div className="quote-person">
-                <img src={q.avatar} alt={q.name} className="avatar" />
-                <div>
-                  <h5>{q.name}</h5>
-                  <span>{q.sub}</span>
+            <ScrollReveal key={i} baseRotation={i % 2 === 0 ? -4 : 4} translateY={40} baseOpacity={0.2} blurStrength={6}>
+              <div className={`quote-card sticky-note-card ${q.tilt}`}>
+                <div className="tape-strip"></div>
+                <div className="quote-mark">99</div>
+                <p className="hand">{q.quote}</p>
+                <div className="quote-divider"></div>
+                <div className="quote-person">
+                  <img src={q.avatar} alt={q.name} className="avatar" />
+                  <div>
+                    <h5>{q.name}</h5>
+                    <span>{q.sub}</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

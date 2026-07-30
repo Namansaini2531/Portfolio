@@ -8,13 +8,14 @@ const ScrollReveal = ({
   children,
   scrollContainerRef,
   enableBlur = true,
-  baseOpacity = 0.1,
-  baseRotation = 2,
-  blurStrength = 4,
+  baseOpacity = 0.05,
+  baseRotation = 6,
+  translateY = 40,
+  blurStrength = 8,
   containerClassName = '',
   textClassName = '',
-  rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom',
+  rotationEnd = 'center center',
+  wordAnimationEnd = 'center center',
   as = 'div'
 }) => {
   const containerRef = useRef(null)
@@ -25,7 +26,7 @@ const ScrollReveal = ({
     return children.split(/(\s+)/).map((word, index) => {
       if (word.match(/^\s+$/)) return word
       return (
-        <span className="word" key={index} style={{ display: 'inline-block' }}>
+        <span className="word" key={index} style={{ display: 'inline-block', willChange: 'transform, opacity, filter' }}>
           {word}
         </span>
       )
@@ -39,19 +40,24 @@ const ScrollReveal = ({
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window
 
     const ctx = gsap.context(() => {
-      // Rotation effect on container
+      // 1. Container rotation & vertical movement animation
       gsap.fromTo(
         el,
-        { transformOrigin: '0% 50%', rotate: baseRotation },
+        { 
+          transformOrigin: '0% 50%', 
+          rotate: baseRotation,
+          y: translateY
+        },
         {
-          ease: 'none',
+          ease: 'power2.out',
           rotate: 0,
+          y: 0,
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top bottom',
+            start: 'top 90%',
             end: rotationEnd,
-            scrub: true
+            scrub: 1
           }
         }
       )
@@ -59,58 +65,64 @@ const ScrollReveal = ({
       const wordElements = el.querySelectorAll('.word')
 
       if (wordElements.length > 0) {
-        // Opacity reveal for words
+        // 2. Opacity reveal for individual words
         gsap.fromTo(
           wordElements,
-          { opacity: baseOpacity, willChange: 'opacity' },
+          { opacity: baseOpacity, y: translateY * 0.5, willChange: 'opacity, transform' },
           {
-            ease: 'none',
+            ease: 'power2.out',
             opacity: 1,
-            stagger: 0.05,
+            y: 0,
+            stagger: 0.04,
             scrollTrigger: {
               trigger: el,
               scroller,
-              start: 'top bottom-=15%',
+              start: 'top 85%',
               end: wordAnimationEnd,
-              scrub: true
+              scrub: 1
             }
           }
         )
 
-        // Optional blur reveal for words
+        // 3. Blur reveal for words
         if (enableBlur) {
           gsap.fromTo(
             wordElements,
             { filter: `blur(${blurStrength}px)` },
             {
-              ease: 'none',
+              ease: 'power2.out',
               filter: 'blur(0px)',
-              stagger: 0.05,
+              stagger: 0.04,
               scrollTrigger: {
                 trigger: el,
                 scroller,
-                start: 'top bottom-=15%',
+                start: 'top 85%',
                 end: wordAnimationEnd,
-                scrub: true
+                scrub: 1
               }
             }
           )
         }
       } else {
-        // Fallback for non-text / container child elements
+        // Fallback for non-text card/component blocks
         gsap.fromTo(
           el,
-          { opacity: baseOpacity, filter: enableBlur ? `blur(${blurStrength}px)` : 'none' },
+          { 
+            opacity: baseOpacity, 
+            y: translateY,
+            filter: enableBlur ? `blur(${blurStrength}px)` : 'none' 
+          },
           {
-            ease: 'none',
+            ease: 'power2.out',
             opacity: 1,
+            y: 0,
             filter: 'blur(0px)',
             scrollTrigger: {
               trigger: el,
               scroller,
-              start: 'top bottom-=15%',
+              start: 'top 85%',
               end: wordAnimationEnd,
-              scrub: true
+              scrub: 1
             }
           }
         )
@@ -118,7 +130,7 @@ const ScrollReveal = ({
     }, el)
 
     return () => ctx.revert()
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength])
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, translateY, rotationEnd, wordAnimationEnd, blurStrength])
 
   const Component = as
 
