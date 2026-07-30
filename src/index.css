@@ -1045,3 +1045,102 @@ html.dark .skill-icon-badge {
   background: #2b2b28;
 }
 
+/* Certifications Section Styling */
+.certifications-section {
+  padding: 100px 28px 80px;
+  position: relative;
+  background: var(--cream);
+  border-bottom: 4px solid var(--line);
+}
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.cert-card {
+  background: var(--cream);
+  border: 3px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 5px 5px 0 var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+  min-height: 220px;
+}
+.cert-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 7px 7px 0 var(--line);
+}
+.cert-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.cert-icon-container {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  background: var(--cream);
+  box-shadow: 2px 2px 0 var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cert-year-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border: 2px solid var(--line);
+  border-radius: 20px;
+  background: var(--cream);
+  box-shadow: 2px 2px 0 var(--line);
+  color: var(--line);
+}
+.cert-title-text {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--line);
+  margin: 0 0 16px;
+  line-height: 1.35;
+  transition: color 0.15s ease;
+}
+.cert-card:hover .cert-title-text {
+  color: #3b82f6;
+}
+.cert-divider {
+  border-top: 2px dashed var(--line);
+  margin-top: auto;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+.cert-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cert-issuer-text {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.7;
+  color: var(--line);
+}
+.cert-verified-badge {
+  font-size: 12px;
+  font-weight: 800;
+  color: #22c55e;
+  display: inline-flex;
+  align-items: center;
+}
+html.dark .cert-card {
+  background: #1c1e24;
+}
+html.dark .cert-icon-container,
+html.dark .cert-year-badge {
+  background: #252830;
+}
+

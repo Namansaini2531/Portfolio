@@ -5,6 +5,7 @@ import Skills from './components/Skills'
 import Services from './components/Services'
 import Portfolio from './components/Portfolio'
 import Testimonials from './components/Testimonials'
+import Certifications from './components/Certifications'
 import Cta from './components/Cta'
 import Footer from './components/Footer'
 
@@ -18,6 +19,7 @@ export default function App() {
       <Services />
       <Portfolio />
       <Testimonials />
+      <Certifications />
       <Cta />
       <Footer />
     </>

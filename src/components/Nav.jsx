@@ -41,7 +41,7 @@ export default function Nav() {
           <a href="#services">Services</a>
           <a href="#portfolio">Projects</a>
           <a href="#about">Timeline</a>
-          <a href="#about" className="nav-wavy">Certifications</a>
+          <a href="#certifications" className="nav-wavy">Certifications</a>
           <a href="#hire">Contact</a>
         </nav>
 
