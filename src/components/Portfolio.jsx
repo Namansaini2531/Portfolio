@@ -1,8 +1,28 @@
 const PROJECTS = [
-  { thumbClass: 'thumb-a', label: 'MarTechAdda Intern Project', type: 'Product Engineering', tech: 'React, Node.js, Python, Full Stack Dev' },
-  { thumbClass: 'thumb-b', label: 'Cybersecurity Vulnerability Audit Tool', type: 'Security Auditing', tech: 'Python, Bash, Network Sec, Penetration Audit' },
-  { thumbClass: 'thumb-c', label: 'Immersive AR/VR Training Simulator', type: 'AR/VR Tech', tech: 'C#, Unity, Meta Quest Integration' },
-  { thumbClass: 'thumb-d', label: 'Gen AI Smart Suite Application', type: 'Generative AI', tech: 'Oracle Cloud, LLMs, LangChain, API Integration' },
+  { 
+    label: 'Internship Project', 
+    title: 'CRM Software', 
+    tech: 'React, Node.js, Express, REST APIs',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    label: 'Internship Project', 
+    title: 'Billing Software', 
+    tech: 'React, TypeScript, Zustand, Tailwind',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    label: 'Security Project', 
+    title: 'Cybersecurity Vulnerability Audit Tool', 
+    tech: 'Python, Bash, Network Sec, Pentesting',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    label: 'Gen AI & Cloud', 
+    title: 'Gen AI Smart Suite Application', 
+    tech: 'Oracle Cloud, LLMs, LangChain, APIs',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80'
+  }
 ]
 
 export default function Portfolio() {
@@ -14,12 +34,17 @@ export default function Portfolio() {
           <u>My Portfolio</u> <span className="tile-icon"></span>
         </h2>
         <div className="port-grid">
-          {PROJECTS.map((p) => (
-            <div className="port-card" key={p.label}>
-              <div className={`port-thumb ${p.thumbClass}`}>{p.label}</div>
+          {PROJECTS.map((p, i) => (
+            <div className="port-card" key={i}>
+              <div className="port-thumb" style={{ position: 'relative', padding: 0 }}>
+                <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <span className="port-badge" style={{ position: 'absolute', top: '10px', left: '10px', background: 'var(--yellow)', border: '2px solid var(--line)', borderRadius: '20px', padding: '2px 10px', fontSize: '11px', fontWeight: 'bold', color: '#141414', boxShadow: '2px 2px 0 var(--line)' }}>
+                  {p.label}
+                </span>
+              </div>
               <div className="port-meta">
                 <div>
-                  <h4>{p.type}</h4>
+                  <h4>{p.title}</h4>
                   <p>{p.tech}</p>
                 </div>
                 <div className="go">↗</div>

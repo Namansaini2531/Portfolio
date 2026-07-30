@@ -83,7 +83,7 @@ header.site-header {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 32px;
+  padding: 8px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -159,6 +159,12 @@ header.site-header {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='10' viewBox='0 0 100 10 '%3E%3Cpath d='M0,5 Q12.5,0 25,5 T50,5 T75,5 T100,5' fill='none' stroke='%233b82f6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
   background-size: 16px 5px;
   background-repeat: repeat-x;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav-wavy:hover::after {
+  opacity: 1;
 }
 
 .nav-actions {
@@ -657,7 +663,7 @@ html.dark .frame .screen {
 
 .port-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 36px 40px;
 }
 
