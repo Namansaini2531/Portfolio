@@ -644,16 +644,117 @@ html.dark .frame .screen {
 .quote-card.tilt-l{ transform:rotate(-2.5deg); }
 
 .cta-wrap{ padding:60px 28px 100px; position:relative; }
-.cta{
-  border:2.5px solid var(--line);
-  box-shadow:9px 9px 0 var(--line);
-  padding:70px 30px;
-  text-align:center;
-  background:var(--cream);
-  position:relative;
+.cta-grid {
+  border: 3.5px solid var(--line);
+  box-shadow: 10px 10px 0 var(--line);
+  padding: 60px 48px;
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: center;
+  border-radius: 16px;
 }
-.cta h3{ font-size:32px; font-weight:700; margin:0 0 14px; }
-.cta p{ font-size:15px; opacity:.7; margin:0 0 30px; }
+.cta-info {
+  text-align: left;
+}
+.cta-info h3 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+.cta-info p {
+  font-size: 16px;
+  opacity: 0.85;
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+.inline-btn {
+  display: inline-flex;
+}
+.cta-form-container {
+  background: var(--cream);
+  border: 3px solid var(--line);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 6px 6px 0 var(--line);
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+.form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--line);
+}
+.form-group input,
+.form-group textarea {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 12px 16px;
+  border: 2.5px solid var(--line);
+  border-radius: 8px;
+  background: var(--cream);
+  color: var(--ink);
+  outline: none;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  background: var(--yellow);
+  box-shadow: 3px 3px 0 var(--line);
+}
+.submit-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+.form-success {
+  text-align: center;
+  padding: 20px;
+}
+.form-success h4 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: var(--line);
+}
+.form-success p {
+  font-size: 15px;
+  opacity: 0.8;
+  margin: 0 0 24px;
+}
+.form-error {
+  font-size: 14px;
+  color: var(--red);
+  font-weight: 700;
+  margin: 10px 0 0;
+  text-align: center;
+}
+html.dark .cta-form-container {
+  background: #1e1e1b;
+}
+
+@media(max-width: 860px) {
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 40px 24px;
+  }
+  .cta-info {
+    text-align: center;
+  }
+}
 
 footer{
   border-top:2px solid var(--line);
