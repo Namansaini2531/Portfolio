@@ -913,18 +913,18 @@ html.dark .tape-strip {
 }
 
 .cta-wrap {
-  padding: 60px 28px 100px;
+  padding: 48px 28px 80px;
   position: relative;
 }
 
 .cta-grid {
   border: 3.5px solid var(--line);
   box-shadow: 10px 10px 0 var(--line);
-  padding: 60px 48px;
+  padding: 48px 38px;
   background: var(--cream);
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 48px;
+  gap: 38px;
   align-items: center;
   border-radius: 16px;
 }
@@ -934,16 +934,16 @@ html.dark .tape-strip {
 }
 
 .cta-info h3 {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 800;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
   line-height: 1.2;
 }
 
 .cta-info p {
-  font-size: 16px;
+  font-size: 14px;
   opacity: 0.85;
-  margin: 0 0 32px;
+  margin: 0 0 24px;
   line-height: 1.6;
 }
 
@@ -955,14 +955,14 @@ html.dark .tape-strip {
   background: var(--cream);
   border: 3px solid var(--line);
   border-radius: 12px;
-  padding: 32px;
+  padding: 24px;
   box-shadow: 6px 6px 0 var(--line);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
 }
 
 .form-group {
@@ -982,8 +982,8 @@ html.dark .tape-strip {
 .form-group input,
 .form-group textarea {
   font-family: inherit;
-  font-size: 15px;
-  padding: 12px 16px;
+  font-size: 14px;
+  padding: 9px 13px;
   border: 2.5px solid var(--line);
   border-radius: 8px;
   background: var(--cream);

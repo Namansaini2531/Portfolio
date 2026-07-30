@@ -34,17 +34,15 @@ export default function Cta() {
 
   return (
     <section className="cta-wrap" id="hire">
-      <div className="star pink" style={{ width: 44, height: 44, top: 10, right: '30%' }}></div>
       <div className="wrap">
         <div className="cta-grid">
           <div className="cta-info">
-            <h3>Let&rsquo;s build something amazing together</h3>
+            <h3>Open to full-time &amp; internship opportunities 🚀</h3>
             <p>
-              Looking for a product engineering intern, software developer, or tech collaborator?
-              Send me a message directly using the form, or connect with me on LinkedIn!
+              I'm a CSE student at GLBITM (Class of '28) actively looking for <strong>SDE internships</strong> and <strong>entry-level roles</strong> in backend development, full-stack engineering, or cybersecurity. If you think I'd be a good fit for your team, let's talk!
             </p>
             <a href="https://www.linkedin.com/in/naman-saini-b19967333" target="_blank" rel="noreferrer" className="btn inline-btn" style={{ background: 'var(--yellow)' }}>
-              Connect on LinkedIn
+              View LinkedIn Profile
             </a>
           </div>
 
@@ -90,7 +88,7 @@ export default function Cta() {
                     onChange={handleChange}
                     required
                     rows="4"
-                    placeholder="Tell me about your project..."
+                    placeholder="Hi Naman, we'd love to have you..."
                   ></textarea>
                 </div>
                 <button type="submit" className="btn submit-btn" disabled={status === 'sending'}>

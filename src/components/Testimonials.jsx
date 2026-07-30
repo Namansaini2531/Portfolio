@@ -1,15 +1,15 @@
 const QUOTES = [
   { 
-    quote: '"Naman demonstrated remarkable problem-solving ability and engineering dedication during his internship at MarTechAdda."',
-    name: 'Product Team Lead',
-    sub: 'MarTechAdda Engineering',
-    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=80&h=80',
+    quote: '"It was a great experience working with Naman. He proved to be an amazing teammate and a very effective team lead during our project."',
+    name: 'Ankush',
+    sub: 'Product Engineering Intern — MarTechAdda',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80',
     tilt: 'tilt-l'
   },
   { 
-    quote: '"Design & clean code that connects everyone! Naman brings great energy to team projects and community initiatives."',
-    name: 'Rotaract Executive',
-    sub: 'Rotaract Club of GL Bajaj',
+    quote: '"Naman is a dedicated and hardworking person who approaches every project with commitment and professionalism."',
+    name: 'Utkarsh Sinha',
+    sub: 'Sergeant at Arms — Rotaract Club of GL Bajaj',
     avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=80&h=80',
     tilt: 'tilt-r'
   },
@@ -17,8 +17,8 @@ const QUOTES = [
     quote: '"Exceptional grasp on Java DSA and quick adaptability with emerging Gen AI tools and full-stack development."',
     name: 'Peer Collaborator',
     sub: "GLBITM CSE '28",
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80',
-    tilt: 'tilt-l'
+    avatar: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&w=80&h=80',
+    tilt: 'tilt-r'
   }
 ]
 
