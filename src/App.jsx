@@ -2,7 +2,6 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Toolbar from './components/Toolbar'
 import Skills from './components/Skills'
-import Services from './components/Services'
 import Portfolio from './components/Portfolio'
 import Testimonials from './components/Testimonials'
 import Certifications from './components/Certifications'
@@ -16,7 +15,6 @@ export default function App() {
       <Hero />
       <Toolbar />
       <Skills />
-      <Services />
       <Portfolio />
       <Testimonials />
       <Certifications />
