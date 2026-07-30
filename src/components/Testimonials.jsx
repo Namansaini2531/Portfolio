@@ -2,17 +2,17 @@ import ScrollReveal from './ScrollReveal'
 
 const QUOTES = [
   { 
-    quote: '"It was a great experience working with Naman. He proved to be an amazing teammate and a very effective team lead during our project."',
-    name: 'Ankush',
-    sub: 'Product Engineering Intern — MarTechAdda',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80',
-    tilt: 'tilt-l'
-  },
-  { 
     quote: '"Naman is a dedicated and hardworking person who approaches every project with commitment and professionalism."',
     name: 'Utkarsh Sinha',
     sub: 'Sergeant at Arms — Rotaract Club of GL Bajaj',
     avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=80&h=80',
+    tilt: 'tilt-l'
+  },
+  { 
+    quote: '"It was a great experience working with Naman. He proved to be an amazing teammate and a very effective team lead during our project."',
+    name: 'Ankush',
+    sub: 'Product Engineering Intern — MarTechAdda',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80',
     tilt: 'tilt-r'
   },
   { 
