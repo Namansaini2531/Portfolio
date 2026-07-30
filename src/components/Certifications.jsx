@@ -13,7 +13,7 @@ const CERTIFICATIONS = [
   {
     id: "cert-2",
     title: "Generative AI Mastermind",
-    issuer: "Outskill / Tech Program",
+    issuer: "Outskill",
     year: "2025",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBC05" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -24,7 +24,7 @@ const CERTIFICATIONS = [
   {
     id: "cert-3",
     title: "AR/VR Immersive Technology Training & Project Program",
-    issuer: "Immersive Tech Academy",
+    issuer: "Aalgorix",
     year: "2025",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -37,8 +37,8 @@ const CERTIFICATIONS = [
   {
     id: "cert-4",
     title: "Introduction to Cybersecurity",
-    issuer: "Cisco / Security Academy",
-    year: "2025",
+    issuer: "Cisco Networking Academy",
+    year: "2026",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -49,12 +49,24 @@ const CERTIFICATIONS = [
   {
     id: "cert-5",
     title: "Soft Skills Course - Complete Professional Development",
-    issuer: "Professional Development Institute",
+    issuer: "GeeksforGeeks",
     year: "2025",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A142F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+      </svg>
+    )
+  },
+  {
+    id: "cert-6",
+    title: "AWS Academy Cloud Foundations",
+    issuer: "Amazon Web Services (AWS)",
+    year: "2026",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2v8M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        <path d="M22 19c-1-2-4-3-10-3s-9 1-10 3" />
       </svg>
     )
   }

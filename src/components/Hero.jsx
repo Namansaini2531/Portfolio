@@ -23,7 +23,7 @@ export default function Hero() {
     <section className="hero" id="about">
       {/* Pink star bottom-left of the hero section */}
       <SpikyStar className="hero-star-bottom-left" size={60} fill="var(--pink-deep)" />
-      
+
       <div className="wrap hero-grid">
         <div className="hero-content">
           <div className="sticky-note-left">
