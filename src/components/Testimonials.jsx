@@ -1,55 +1,55 @@
 const QUOTES = [
   { 
-    name: 'Aditya Sharma', 
-    role: 'Lead Engineer, MarTechAdda', 
-    quote: 'Naman is an outstanding engineering intern. His full-stack skills and enthusiasm for AI/ML helped us deliver critical features ahead of schedule.', 
-    tilt: 'tilt-l', 
-    offset: false 
+    quote: '"Naman demonstrated remarkable problem-solving ability and engineering dedication during his internship at MarTechAdda."',
+    name: 'Product Team Lead',
+    sub: 'MarTechAdda Engineering',
+    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=80&h=80',
+    tilt: 'tilt-l'
   },
   { 
-    name: 'Prof. Rajan Gupta', 
-    role: 'CS Department, GLBITM', 
-    quote: 'An incredibly bright student. His project work on cybersecurity auditing showcased great research, implementation, and software engineering skills.', 
-    tilt: 'tilt-r', 
-    offset: true 
+    quote: '"Design & clean code that connects everyone! Naman brings great energy to team projects and community initiatives."',
+    name: 'Rotaract Executive',
+    sub: 'Rotaract Club of GL Bajaj',
+    avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=80&h=80',
+    tilt: 'tilt-r'
   },
   { 
-    name: 'Sarah Jenkins', 
-    role: 'VR Project Coordinator', 
-    quote: 'Exceptional work on the VR training simulator. The integration of Meta Quest controllers was flawless and very well-documented.', 
-    tilt: 'tilt-r', 
-    offset: false 
-  },
-  { 
-    name: 'Rotaract Club GL Bajaj', 
-    role: 'Club Coordinator', 
-    quote: 'Namans technical contributions to our club website and digital community outreach were vital. A highly collaborative and responsible team player.', 
-    tilt: 'tilt-l', 
-    offset: true 
-  },
+    quote: '"Exceptional grasp on Java DSA and quick adaptability with emerging Gen AI tools and full-stack development."',
+    name: 'Peer Collaborator',
+    sub: "GLBITM CSE '28",
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80',
+    tilt: 'tilt-l'
+  }
 ]
 
 export default function Testimonials() {
   return (
-    <section className="testimonials">
+    <section className="testimonials" id="testimonials">
       <div className="wrap">
-        <div className="test-head">
-          Here&rsquo;s what mentors and teammates say about my work
-          <span className="hand">Feedback!</span>
+        <div className="endorsement-title-row">
+          <div className="endorsement-header">
+            <span className="endorsement-badge">ENDORSEMENTS</span>
+            <h2 className="endorsement-main-title">
+              HERE&rsquo;S WHAT MY <span className="hl-peers">PEERS & LEADS</span> SAY ✍️
+            </h2>
+          </div>
+          <p className="endorsement-subtitle">
+            Feedback from Product Lead, Rotaract club members, and academic collaborators.
+          </p>
         </div>
+
         <div className="test-stack">
           {QUOTES.map((q, i) => (
-            <div
-              className={`quote-card ${q.tilt}`}
-              style={q.offset ? { marginTop: 40 } : undefined}
-              key={i}
-            >
-              <p>&ldquo;{q.quote}&rdquo;</p>
+            <div className={`quote-card sticky-note-card ${q.tilt}`} key={i}>
+              <div className="tape-strip"></div>
+              <div className="quote-mark">99</div>
+              <p className="hand">{q.quote}</p>
+              <div className="quote-divider"></div>
               <div className="quote-person">
-                <div className="avatar"></div>
+                <img src={q.avatar} alt={q.name} className="avatar" />
                 <div>
                   <h5>{q.name}</h5>
-                  <span>{q.role}</span>
+                  <span>{q.sub}</span>
                 </div>
               </div>
             </div>

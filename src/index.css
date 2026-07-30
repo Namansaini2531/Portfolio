@@ -597,51 +597,164 @@ html.dark .frame .screen {
   padding:110px 28px 60px;
   position:relative;
 }
-.test-head{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  font-size:34px;
-  font-weight:700;
-  line-height:1.25;
-  max-width:480px;
-  margin-bottom:70px;
+.testimonials {
+  padding: 100px 28px 80px;
+  position: relative;
+  background: var(--cream);
+  border-bottom: 2px solid var(--line);
 }
-.test-head .hand{ font-size:20px; transform:rotate(-6deg); white-space:nowrap; }
-.test-stack{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:70px 40px;
-  max-width:900px;
-  margin:0 auto;
+.endorsement-title-row {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
 }
-.quote-card{
-  background:var(--cream);
-  border:2px solid var(--line);
-  padding:22px;
-  box-shadow:5px 5px 0 var(--line);
+.endorsement-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
 }
-.quote-card p{
-  font-size:16px;
-  font-weight:500;
-  margin:0 0 20px;
-  line-height:1.4;
+.endorsement-badge {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 6px 18px;
+  border: 2px solid var(--line);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--ink);
+  display: inline-block;
 }
-.quote-person{
-  display:flex;
-  align-items:center;
-  gap:12px;
+.endorsement-main-title {
+  font-size: 42px;
+  font-weight: 850;
+  margin: 0;
+  letter-spacing: -1.5px;
+  color: var(--line);
 }
-.avatar{
-  width:38px;height:38px;
-  border-radius:50%;
-  border:2px solid var(--line);
-  background:#ccc;
+.hl-peers {
+  background: var(--yellow);
+  padding: 4px 16px;
+  border: 3px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 var(--line);
+  display: inline-block;
 }
-.quote-person h5{ margin:0; font-size:14px; font-weight:600; }
-.quote-person span{ font-size:12px; opacity:.6; }
-.quote-card.tilt-r{ transform:rotate(2.5deg); }
-.quote-card.tilt-l{ transform:rotate(-2.5deg); }
+.endorsement-subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.test-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.sticky-note-card {
+  background: #fefbc0; /* post-it yellow */
+  border: 3.5px solid var(--line);
+  border-radius: 4px;
+  padding: 34px 28px 24px;
+  box-shadow: 7px 7px 0 var(--line);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sticky-note-card:hover {
+  transform: translateY(-5px) scale(1.02) !important;
+  box-shadow: 10px 10px 0 var(--line);
+}
+.sticky-note-card.tilt-l {
+  transform: rotate(-2deg);
+}
+.sticky-note-card.tilt-r {
+  transform: rotate(1.5deg);
+}
+
+.tape-strip {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 70px;
+  height: 20px;
+  background: rgba(220, 220, 220, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.quote-mark {
+  font-family: 'Caveat', cursive;
+  font-size: 52px;
+  color: var(--line);
+  line-height: 1;
+  margin-bottom: -10px;
+  opacity: 0.15;
+}
+
+.sticky-note-card p.hand {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #27272a; /* standard handwriting pencil color */
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+.quote-divider {
+  border-top: 2px dotted rgba(0, 0, 0, 0.15);
+  margin-bottom: 18px;
+}
+
+.quote-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.quote-person img.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2.5px solid var(--line);
+  object-fit: cover;
+}
+.quote-person h5 {
+  margin: 0 0 2px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--line);
+}
+.quote-person span {
+  font-size: 12px;
+  opacity: 0.7;
+  color: var(--line);
+  font-weight: 500;
+}
+
+/* Dark mode adjustment for post-its so they are readable but still look like notes */
+html.dark .sticky-note-card {
+  background: #fefbc0; /* Keep it light yellow so they look like real post-it sticky notes, or adjust if you prefer a dark card */
+}
+html.dark .sticky-note-card p.hand {
+  color: #1c1917;
+}
+html.dark .sticky-note-card .quote-divider {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+html.dark .sticky-note-card h5,
+html.dark .sticky-note-card span {
+  color: #1c1917;
+}
+html.dark .tape-strip {
+  background: rgba(230, 230, 230, 0.9);
+}
 
 .cta-wrap{ padding:60px 28px 100px; position:relative; }
 .cta-grid {

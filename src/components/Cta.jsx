@@ -13,19 +13,12 @@ export default function Cta() {
     setStatus('sending')
     
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE', // Easily replace this with your access key or Formspree endpoint
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: 'New Portfolio Contact Message'
-        })
+        body: JSON.stringify(formData)
       })
       
       if (response.ok) {
