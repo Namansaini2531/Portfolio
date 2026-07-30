@@ -25,19 +25,12 @@ export default function Nav() {
     <header className="site-header">
       <div className="nav-container">
         {/* Left Side: Logo */}
-        <a href="#" className="logo-group">
-          <div className="logo-badge">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--yellow)">
-              <path d="M12,2 L15,9 L22,12 L15,15 L12,22 L9,15 L2,12 L9,9 Z" />
-            </svg>
+        <a href="#about" className="logo-group">
+          <div className="logo-badge" style={{ background: 'var(--line)', width: '32px', height: '32px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ color: 'var(--yellow)', fontSize: '18px', fontWeight: 'bold' }}>✦</span>
           </div>
           <div className="logo-text-wrapper">
-            <span className="logo-name">Naman</span>
-            <div className="logo-underline">
-              <svg width="60" height="6" viewBox="0 0 60 6" fill="none">
-                <path d="M1,3 Q15,1 30,3 T59,3" stroke="var(--line)" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
+            <span className="logo-name" style={{ borderBottom: '2px dashed var(--line)', paddingBottom: '2px' }}>Naman</span>
           </div>
         </a>
 

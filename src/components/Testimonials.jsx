@@ -27,12 +27,10 @@ export default function Testimonials() {
     <section className="testimonials" id="testimonials">
       <div className="wrap">
         <div className="endorsement-title-row">
-          <div className="endorsement-header">
-            <span className="endorsement-badge">ENDORSEMENTS</span>
-            <h2 className="endorsement-main-title">
-              HERE&rsquo;S WHAT MY <span className="hl-peers">PEERS & LEADS</span> SAY ✍️
-            </h2>
-          </div>
+          <h2 className="endorsement-main-title">
+            <span className="endorsement-badge">ENDORSEMENTS</span>{' '}
+            HERE&rsquo;S WHAT MY <span className="hl-peers">PEERS & LEADS</span> SAY ✍️
+          </h2>
           <p className="endorsement-subtitle">
             Feedback from Product Lead, Rotaract club members, and academic collaborators.
           </p>
