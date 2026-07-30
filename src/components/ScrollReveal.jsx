@@ -7,11 +7,10 @@ gsap.registerPlugin(ScrollTrigger)
 const ScrollReveal = ({
   children,
   scrollContainerRef,
-  enableBlur = true,
-  baseOpacity = 0.05,
-  baseRotation = 6,
+  enableBlur = false,
+  baseOpacity = 0.1,
+  baseRotation = 5,
   translateY = 40,
-  blurStrength = 8,
   containerClassName = '',
   textClassName = '',
   rotationEnd = 'center center',
@@ -26,7 +25,7 @@ const ScrollReveal = ({
     return children.split(/(\s+)/).map((word, index) => {
       if (word.match(/^\s+$/)) return word
       return (
-        <span className="word" key={index} style={{ display: 'inline-block', willChange: 'transform, opacity, filter' }}>
+        <span className="word" key={index} style={{ display: 'inline-block', willChange: 'transform, opacity' }}>
           {word}
         </span>
       )
@@ -40,7 +39,7 @@ const ScrollReveal = ({
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window
 
     const ctx = gsap.context(() => {
-      // 1. Container rotation & vertical movement animation
+      // 1. Container motion & tilt animation (no blur)
       gsap.fromTo(
         el,
         { 
@@ -65,10 +64,10 @@ const ScrollReveal = ({
       const wordElements = el.querySelectorAll('.word')
 
       if (wordElements.length > 0) {
-        // 2. Opacity reveal for individual words
+        // 2. Crisp opacity & motion reveal for individual words
         gsap.fromTo(
           wordElements,
-          { opacity: baseOpacity, y: translateY * 0.5, willChange: 'opacity, transform' },
+          { opacity: baseOpacity, y: translateY * 0.4, willChange: 'opacity, transform' },
           {
             ease: 'power2.out',
             opacity: 1,
@@ -83,40 +82,18 @@ const ScrollReveal = ({
             }
           }
         )
-
-        // 3. Blur reveal for words
-        if (enableBlur) {
-          gsap.fromTo(
-            wordElements,
-            { filter: `blur(${blurStrength}px)` },
-            {
-              ease: 'power2.out',
-              filter: 'blur(0px)',
-              stagger: 0.04,
-              scrollTrigger: {
-                trigger: el,
-                scroller,
-                start: 'top 85%',
-                end: wordAnimationEnd,
-                scrub: 1
-              }
-            }
-          )
-        }
       } else {
-        // Fallback for non-text card/component blocks
+        // Crisp opacity & motion reveal for non-text card/component blocks
         gsap.fromTo(
           el,
           { 
             opacity: baseOpacity, 
-            y: translateY,
-            filter: enableBlur ? `blur(${blurStrength}px)` : 'none' 
+            y: translateY
           },
           {
             ease: 'power2.out',
             opacity: 1,
             y: 0,
-            filter: 'blur(0px)',
             scrollTrigger: {
               trigger: el,
               scroller,
@@ -130,7 +107,7 @@ const ScrollReveal = ({
     }, el)
 
     return () => ctx.revert()
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, translateY, rotationEnd, wordAnimationEnd, blurStrength])
+  }, [scrollContainerRef, baseRotation, baseOpacity, translateY, rotationEnd, wordAnimationEnd])
 
   const Component = as
 
