@@ -80,15 +80,9 @@ export default function Hero() {
               <div className="dot"></div>
               <div className="dot"></div>
               <div className="bulb">💡</div>
-              <div className="screen">
-                <div className="custom-smiley">
-                  <div className="eyes">
-                    <div className="eye"></div>
-                    <div className="eye"></div>
-                  </div>
-                  <div className="smile-mouth"></div>
-                </div>
-                <div className="mockup-name hand">Naman Saini</div>
+              <div className="screen" style={{ overflow: 'hidden', padding: 0 }}>
+                <img src="/naman.jpg" alt="Naman Saini" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className="mockup-name hand" style={{ position: 'absolute', bottom: '12px', left: '50%', transform: 'translateX(-50%)', background: 'rgba(255, 255, 255, 0.9)', padding: '2px 14px', borderRadius: '20px', border: '2.5px solid var(--line)', whiteSpace: 'nowrap', zIndex: 10 }}>Naman Saini</div>
               </div>
               <SpikyStar className="frame-star" size={54} fill="var(--red)" />
             </div>
