@@ -50,7 +50,7 @@ body {
 }
 
 .wrap {
-  max-width: 1040px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 28px;
   position: relative;
@@ -1665,6 +1665,16 @@ html.dark .cert-modal-content {
   .portfolio-subtitle,
   .endorsement-subtitle {
     font-size: 14px;
+  }
+
+  .wrap {
+    padding: 0 16px;
+  }
+
+  .exp-card,
+  .portfolio-card,
+  .cert-card {
+    padding: 18px 16px;
   }
 }
 
