@@ -5,19 +5,19 @@ const PROJECTS = [
     label: 'Internship Project',
     title: 'Customer Relationship Management (CRM) Software',
     tech: 'React, Node.js, Express, REST APIs',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80'
+    image: 'mta-crm-ss.png'
   },
   {
     label: 'Internship Project',
     title: 'Billing Software',
     tech: 'React, TypeScript, Zustand, Tailwind',
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80'
+    image: '/ledgerly-billing.png'
   },
   {
     label: 'Web Development',
     title: 'DBT-Aadhaar-Seeding-Awareness-Portal',
     tech: 'HTML, CSS, JavaScript',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80',
+    image: '/dbt-portal.png',
     link: 'https://github.com/Namansaini2531/DBT-Aadhaar-Seeding-Awareness-Portal'
   },
   {

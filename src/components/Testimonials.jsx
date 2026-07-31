@@ -5,24 +5,28 @@ const QUOTES = [
     quote: '"Naman is a dedicated and hardworking person who approaches every project with commitment and professionalism."',
     name: 'Utkarsh Sinha',
     sub: 'Sergeant at Arms — Rotaract Club of GL Bajaj',
-    avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=80&h=80',
     tilt: 'tilt-l'
   },
   { 
     quote: '"It was a great experience working with Naman. He proved to be an amazing teammate and a very effective team lead during our project."',
     name: 'Ankush',
     sub: 'Product Engineering Intern — MarTechAdda',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80',
     tilt: 'tilt-r'
   },
   { 
     quote: '"Exceptional grasp on Java DSA and quick adaptability with emerging Gen AI tools and full-stack development."',
-    name: 'Peer Collaborator',
+    name: 'Deepanshu Aggarwal',
     sub: "GLBITM CSE '28",
-    avatar: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&w=80&h=80',
     tilt: 'tilt-r'
   }
 ]
+
+const getInitials = (name) => {
+  if (!name) return ''
+  const parts = name.trim().split(/\s+/)
+  if (parts.length === 1) return parts[0][0].toUpperCase()
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+}
 
 export default function Testimonials() {
   return (
@@ -49,7 +53,9 @@ export default function Testimonials() {
                 <p className="hand">{q.quote}</p>
                 <div className="quote-divider"></div>
                 <div className="quote-person">
-                  <img src={q.avatar} alt={q.name} className="avatar" />
+                  <div className="avatar-placeholder">
+                    {getInitials(q.name)}
+                  </div>
                   <div>
                     <h5>{q.name}</h5>
                     <span>{q.sub}</span>
