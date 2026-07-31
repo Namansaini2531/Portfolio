@@ -1562,6 +1562,38 @@ html.dark .cert-year-badge {
 }
 
 @media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title {
+    text-align: center;
+    font-size: 36px;
+  }
+
+  .hero-visual-container {
+    align-items: center;
+    transform: none !important;
+    width: 100%;
+  }
+
+  .sticky-note-left {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-container {
+    justify-content: center;
+  }
+
   .hamburger-btn {
     display: flex;
   }
