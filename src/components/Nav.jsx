@@ -40,7 +40,7 @@ export default function Nav() {
             <span style={{ color: 'var(--yellow)', fontSize: '18px', fontWeight: 'bold' }}>✦</span>
           </div>
           <div className="logo-text-wrapper">
-            <span className="logo-name" style={{ borderBottom: '2px dashed var(--line)', paddingBottom: '2px' }}>Naman</span>
+            <span className="logo-name">Naman</span>
           </div>
         </a>
 
@@ -50,6 +50,7 @@ export default function Nav() {
           <a href="#skills" onClick={closeMenu}>Skills</a>
           <a href="#portfolio" onClick={closeMenu}>Projects</a>
           <a href="#testimonials" onClick={closeMenu}>Endorsements</a>
+          <a href="#certifications" onClick={closeMenu} className="nav-wavy">Certifications</a>
           <a href="#hire" onClick={closeMenu}>Contact</a>
         </nav>
 
@@ -58,7 +59,7 @@ export default function Nav() {
           <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
             <span>{theme === 'light' ? '☾' : '☀️'}</span>
           </button>
-          
+
           <a href="https://www.linkedin.com/in/naman-saini-b19967333" target="_blank" rel="noreferrer" className="resume-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -71,9 +72,9 @@ export default function Nav() {
           </a>
 
           {/* Hamburger Menu Button (Mobile Only) */}
-          <button 
-            className={`hamburger-btn ${menuOpen ? 'active' : ''}`} 
-            onClick={toggleMenu} 
+          <button
+            className={`hamburger-btn ${menuOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
             aria-label="Toggle navigation menu"
           >
             <span></span>
