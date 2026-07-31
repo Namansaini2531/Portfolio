@@ -149,24 +149,26 @@ header.site-header {
   color: #3b82f6;
 }
 
-.nav-links a::after {
+.nav-wavy {
+  position: relative;
+}
+
+.nav-wavy::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -2px;
   width: 100%;
-  height: 8px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='12' viewBox='0 0 100 12 '%3E%3Cpath d='M0,6 Q12.5,0 25,6 T50,6 T75,6 T100,6' fill='none' stroke='%233b82f6' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-size: 16px 8px;
+  height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='10' viewBox='0 0 100 10 '%3E%3Cpath d='M0,5 Q12.5,0 25,5 T50,5 T75,5 T100,5' fill='none' stroke='%233b82f6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 16px 5px;
   background-repeat: repeat-x;
   opacity: 0;
-  transform: translateY(2px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-.nav-links a:hover::after {
+.nav-wavy:hover::after {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .nav-actions {
@@ -1512,23 +1514,23 @@ html.dark .cert-year-badge {
   .cta-wrap {
     padding: 40px 16px 60px;
   }
-  
+
   .cta-grid {
     padding: 32px 18px;
     box-shadow: 6px 6px 0 var(--line);
     border-radius: 12px;
   }
-  
+
   .cta-info h3 {
     font-size: 24px;
     margin-bottom: 12px;
   }
-  
+
   .cta-info p {
     font-size: 14px;
     line-height: 1.5;
   }
-  
+
   .cta-info .inline-btn {
     width: 100%;
     box-sizing: border-box;
@@ -1537,18 +1539,18 @@ html.dark .cert-year-badge {
     padding: 10px 14px;
     word-break: break-all;
   }
-  
+
   .sticky-note-card.tilt-l,
   .sticky-note-card.tilt-r {
     transform: none !important;
   }
-  
+
   .portfolio-header h2,
   .endorsement-main-title {
     font-size: 28px;
     letter-spacing: -0.5px;
   }
-  
+
   .portfolio-subtitle,
   .endorsement-subtitle {
     font-size: 14px;

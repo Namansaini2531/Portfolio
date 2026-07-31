@@ -50,7 +50,6 @@ export default function Nav() {
           <a href="#skills" onClick={closeMenu}>Skills</a>
           <a href="#portfolio" onClick={closeMenu}>Projects</a>
           <a href="#testimonials" onClick={closeMenu}>Endorsements</a>
-          <a href="#certifications" onClick={closeMenu} className="nav-wavy">Certifications</a>
           <a href="#hire" onClick={closeMenu}>Contact</a>
         </nav>
 
