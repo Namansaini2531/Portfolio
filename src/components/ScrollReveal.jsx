@@ -7,10 +7,8 @@ gsap.registerPlugin(ScrollTrigger)
 const ScrollReveal = ({
   children,
   scrollContainerRef,
-  enableBlur = false,
-  baseOpacity = 0.1,
-  baseRotation = 5,
-  translateY = 40,
+  baseRotation = 3,
+  translateY = 30,
   containerClassName = '',
   textClassName = '',
   rotationEnd = 'center center',
@@ -25,7 +23,7 @@ const ScrollReveal = ({
     return children.split(/(\s+)/).map((word, index) => {
       if (word.match(/^\s+$/)) return word
       return (
-        <span className="word" key={index} style={{ display: 'inline-block', willChange: 'transform, opacity' }}>
+        <span className="word" key={index} style={{ display: 'inline-block', opacity: 1, willChange: 'transform' }}>
           {word}
         </span>
       )
@@ -41,82 +39,43 @@ const ScrollReveal = ({
     const ctx = gsap.context(() => {
       const isMobile = window.innerWidth <= 768
 
-      // 1. Container motion & tilt animation
+      // Always ensure 100% opacity - no white/faded transparency!
+      gsap.set(el, { opacity: 1 })
+
+      // Smooth motion entrance (Translation Y & rotation tilt only)
       gsap.fromTo(
         el,
         { 
           transformOrigin: '0% 50%', 
           rotate: isMobile ? 0 : baseRotation,
-          y: translateY
+          y: isMobile ? 0 : translateY,
+          opacity: 1
         },
         {
           ease: 'power2.out',
           rotate: 0,
           y: 0,
+          opacity: 1,
           scrollTrigger: {
             trigger: el,
             scroller,
             start: 'top 95%',
             end: rotationEnd,
-            scrub: 1
+            scrub: 0.5
           }
         }
       )
-
-      const wordElements = el.querySelectorAll('.word')
-
-      if (wordElements.length > 0) {
-        // 2. Opacity & motion reveal for individual words
-        gsap.fromTo(
-          wordElements,
-          { opacity: isMobile ? 1 : baseOpacity, y: isMobile ? 0 : translateY * 0.4, willChange: 'opacity, transform' },
-          {
-            ease: 'power2.out',
-            opacity: 1,
-            y: 0,
-            stagger: isMobile ? 0 : 0.04,
-            scrollTrigger: {
-              trigger: el,
-              scroller,
-              start: 'top 90%',
-              end: wordAnimationEnd,
-              scrub: 1
-            }
-          }
-        )
-      } else {
-        // Opacity & motion reveal for non-text card/component blocks
-        gsap.fromTo(
-          el,
-          { 
-            opacity: isMobile ? 1 : baseOpacity, 
-            y: translateY
-          },
-          {
-            ease: 'power2.out',
-            opacity: 1,
-            y: 0,
-            scrollTrigger: {
-              trigger: el,
-              scroller,
-              start: 'top 90%',
-              end: wordAnimationEnd,
-              scrub: 1
-            }
-          }
-        )
-      }
     }, el)
 
     return () => ctx.revert()
-  }, [scrollContainerRef, baseRotation, baseOpacity, translateY, rotationEnd, wordAnimationEnd])
+  }, [scrollContainerRef, baseRotation, translateY, rotationEnd, wordAnimationEnd])
 
   const Component = as
 
   return (
-    <Component ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
+    <Component ref={containerRef} className={`scroll-reveal ${containerClassName}`} style={{ opacity: 1 }}>
       {typeof children === 'string' ? (
-        <span className={`scroll-reveal-text ${textClassName}`}>{splitText}</span>
+        <span className={`scroll-reveal-text ${textClassName}`} style={{ opacity: 1 }}>{splitText}</span>
       ) : (
         children
       )}
