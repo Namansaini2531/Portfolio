@@ -10,13 +10,11 @@ import {
   FaBrain, 
   FaShieldAlt,
   FaTerminal,
-  FaVrCardboard
+  FaVrCardboard,
+  FaCode,
+  FaSitemap,
+  FaLaptopCode
 } from 'react-icons/fa'
-import { 
-  TbBrandCpp, 
-  TbBinaryTree, 
-  TbBrandVscode
-} from 'react-icons/tb'
 
 const CATEGORIES = [
   'All',
@@ -45,13 +43,13 @@ const IntellijIcon = () => (
 const SKILLS = [
   { name: 'Java', category: 'Languages', level: 'Proficient', icon: <FaJava style={{ color: '#e76f51', fontSize: '24px' }} /> },
   { name: 'Python', category: 'Languages', level: 'Intermediate', icon: <FaPython style={{ color: '#3776ab', fontSize: '24px' }} /> },
-  { name: 'C++', category: 'Languages', level: 'Intermediate', icon: <TbBrandCpp style={{ color: '#00599c', fontSize: '24px' }} /> },
+  { name: 'C++', category: 'Languages', level: 'Intermediate', icon: <FaCode style={{ color: '#00599c', fontSize: '24px' }} /> },
   { name: 'JavaScript', category: 'Languages', level: 'Proficient', icon: <FaJsSquare style={{ color: '#f7df1e', fontSize: '24px' }} /> },
   { name: 'HTML5 & CSS3', category: 'Languages', level: 'Proficient', icon: <FaHtml5 style={{ color: '#e34f26', fontSize: '24px' }} /> },
-  { name: 'Data Structures & Algorithms', category: 'DSA & Problem Solving', level: 'Proficient (Java)', icon: <TbBinaryTree style={{ color: '#2a9d8f', fontSize: '24px' }} /> },
+  { name: 'Data Structures & Algorithms', category: 'DSA & Problem Solving', level: 'Proficient (Java)', icon: <FaSitemap style={{ color: '#2a9d8f', fontSize: '24px' }} /> },
   { name: 'Problem Solving & Logic', category: 'DSA & Problem Solving', level: 'Advanced', icon: <FaBrain style={{ color: '#e91e63', fontSize: '24px' }} /> },
   { name: 'Git & GitHub', category: 'Tools & Platforms', level: 'Proficient', icon: <FaGitAlt style={{ color: '#f05032', fontSize: '24px' }} /> },
-  { name: 'Visual Studio Code', category: 'Tools & Platforms', level: 'Daily Driver', icon: <TbBrandVscode style={{ color: '#007acc', fontSize: '24px' }} /> },
+  { name: 'Visual Studio Code', category: 'Tools & Platforms', level: 'Daily Driver', icon: <FaLaptopCode style={{ color: '#007acc', fontSize: '24px' }} /> },
   { name: 'IntelliJ IDEA', category: 'Tools & Platforms', level: 'Daily Driver', icon: <IntellijIcon /> },
   { name: 'Oracle Cloud Infrastructure', category: 'Tools & Platforms', level: 'Certified Associate', icon: <OracleIcon /> },
   { name: 'AWS', category: 'Tools & Platforms', level: 'Familiar', icon: <FaAws style={{ color: '#ff9900', fontSize: '24px' }} /> },
