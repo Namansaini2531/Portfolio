@@ -8,6 +8,8 @@ export default function Nav() {
     return 'light'
   })
 
+  const [menuOpen, setMenuOpen] = useState(false)
+
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark')
@@ -21,11 +23,19 @@ export default function Nav() {
     setTheme(prev => prev === 'light' ? 'dark' : 'light')
   }
 
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev)
+  }
+
+  const closeMenu = () => {
+    setMenuOpen(false)
+  }
+
   return (
     <header className="site-header">
       <div className="nav-container">
         {/* Left Side: Logo */}
-        <a href="#about" className="logo-group">
+        <a href="#about" className="logo-group" onClick={closeMenu}>
           <div className="logo-badge" style={{ background: 'var(--line)', width: '32px', height: '32px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span style={{ color: 'var(--yellow)', fontSize: '18px', fontWeight: 'bold' }}>✦</span>
           </div>
@@ -34,22 +44,22 @@ export default function Nav() {
           </div>
         </a>
 
-        {/* Center: Navigation Links */}
-        <nav className="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#services">Services</a>
-          <a href="#portfolio">Projects</a>
-          <a href="#about">Timeline</a>
-          <a href="#certifications" className="nav-wavy">Certifications</a>
-          <a href="#hire">Contact</a>
+        {/* Center: Navigation Links (Desktop + Mobile Drawer) */}
+        <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#skills" onClick={closeMenu}>Skills</a>
+          <a href="#portfolio" onClick={closeMenu}>Projects</a>
+          <a href="#testimonials" onClick={closeMenu}>Endorsements</a>
+          <a href="#certifications" onClick={closeMenu} className="nav-wavy">Certifications</a>
+          <a href="#hire" onClick={closeMenu}>Contact</a>
         </nav>
 
-        {/* Right Side: Actions */}
+        {/* Right Side: Actions + Hamburger Button */}
         <div className="nav-actions">
           <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
             <span>{theme === 'light' ? '☾' : '☀️'}</span>
           </button>
+          
           <a href="https://www.linkedin.com/in/naman-saini-b19967333" target="_blank" rel="noreferrer" className="resume-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -60,6 +70,17 @@ export default function Nav() {
             </svg>
             Resume
           </a>
+
+          {/* Hamburger Menu Button (Mobile Only) */}
+          <button 
+            className={`hamburger-btn ${menuOpen ? 'active' : ''}`} 
+            onClick={toggleMenu} 
+            aria-label="Toggle navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </header>
