@@ -1,5 +1,22 @@
 import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
+import { 
+  FaJava, 
+  FaPython, 
+  FaJsSquare, 
+  FaHtml5, 
+  FaGitAlt, 
+  FaAws, 
+  FaBrain, 
+  FaShieldAlt,
+  FaTerminal,
+  FaVrCardboard
+} from 'react-icons/fa'
+import { 
+  TbBrandCpp, 
+  TbBinaryTree, 
+  TbBrandVscode
+} from 'react-icons/tb'
 
 const CATEGORIES = [
   'All',
@@ -9,22 +26,38 @@ const CATEGORIES = [
   'Gen AI & Tech'
 ]
 
+// Custom Clean SVG Icons for Brand Logos without dependency overhead
+const OracleIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="#f80000">
+    <path d="M16.2 3H7.8C3.5 3 0 6.5 0 10.8s3.5 7.8 7.8 7.8h8.4c4.3 0 7.8-3.5 7.8-7.8S20.5 3 16.2 3zm-.2 12.2H8c-2.4 0-4.4-2-4.4-4.4S5.6 6.4 8 6.4h8c2.4 0 4.4 2 4.4 4.4s-2 4.4-4.4 4.4z"/>
+  </svg>
+)
+
+const IntellijIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <rect width="24" height="24" rx="4" fill="#000000"/>
+    <path d="M4 18h7v2H4z" fill="#FFF"/>
+    <path d="M13 6h7v2h-7z" fill="#FFF"/>
+    <path d="M6 8l4 8M18 16l-4-8" stroke="#FFF" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+)
+
 const SKILLS = [
-  { name: 'Java', category: 'Languages', level: 'Proficient', icon: '☕' },
-  { name: 'Python', category: 'Languages', level: 'Intermediate', icon: '🐍' },
-  { name: 'C++', category: 'Languages', level: 'Intermediate', icon: '⚛️' },
-  { name: 'JavaScript', category: 'Languages', level: 'Proficient', icon: '📜' },
-  { name: 'HTML5 & CSS3', category: 'Languages', level: 'Proficient', icon: '🌐' },
-  { name: 'Data Structures & Algorithms', category: 'DSA & Problem Solving', level: 'Proficient (Java)', icon: '📊' },
-  { name: 'Problem Solving & Logic', category: 'DSA & Problem Solving', level: 'Advanced', icon: '💡' },
-  { name: 'Git & GitHub', category: 'Tools & Platforms', level: 'Proficient', icon: '🐙' },
-  { name: 'Visual Studio Code', category: 'Tools & Platforms', level: 'Daily Driver', icon: '💻' },
-  { name: 'IntelliJ IDEA', category: 'Tools & Platforms', level: 'Daily Driver', icon: '☕' },
-  { name: 'Oracle Cloud Infrastructure', category: 'Tools & Platforms', level: 'Certified Associate', icon: '☁️' },
-  { name: 'AWS', category: 'Tools & Platforms', level: 'Familiar', icon: '📡' },
-  { name: 'Gen AI Tools & Prompt Engineering', category: 'Gen AI & Tech', level: 'Hands-on', icon: '✨' },
-  { name: 'AR/VR Immersive Tech', category: 'Gen AI & Tech', level: 'Trained', icon: '🥽' },
-  { name: 'Cybersecurity Fundamentals', category: 'Gen AI & Tech', level: 'Certified', icon: '🛡️' }
+  { name: 'Java', category: 'Languages', level: 'Proficient', icon: <FaJava style={{ color: '#e76f51', fontSize: '24px' }} /> },
+  { name: 'Python', category: 'Languages', level: 'Intermediate', icon: <FaPython style={{ color: '#3776ab', fontSize: '24px' }} /> },
+  { name: 'C++', category: 'Languages', level: 'Intermediate', icon: <TbBrandCpp style={{ color: '#00599c', fontSize: '24px' }} /> },
+  { name: 'JavaScript', category: 'Languages', level: 'Proficient', icon: <FaJsSquare style={{ color: '#f7df1e', fontSize: '24px' }} /> },
+  { name: 'HTML5 & CSS3', category: 'Languages', level: 'Proficient', icon: <FaHtml5 style={{ color: '#e34f26', fontSize: '24px' }} /> },
+  { name: 'Data Structures & Algorithms', category: 'DSA & Problem Solving', level: 'Proficient (Java)', icon: <TbBinaryTree style={{ color: '#2a9d8f', fontSize: '24px' }} /> },
+  { name: 'Problem Solving & Logic', category: 'DSA & Problem Solving', level: 'Advanced', icon: <FaBrain style={{ color: '#e91e63', fontSize: '24px' }} /> },
+  { name: 'Git & GitHub', category: 'Tools & Platforms', level: 'Proficient', icon: <FaGitAlt style={{ color: '#f05032', fontSize: '24px' }} /> },
+  { name: 'Visual Studio Code', category: 'Tools & Platforms', level: 'Daily Driver', icon: <TbBrandVscode style={{ color: '#007acc', fontSize: '24px' }} /> },
+  { name: 'IntelliJ IDEA', category: 'Tools & Platforms', level: 'Daily Driver', icon: <IntellijIcon /> },
+  { name: 'Oracle Cloud Infrastructure', category: 'Tools & Platforms', level: 'Certified Associate', icon: <OracleIcon /> },
+  { name: 'AWS', category: 'Tools & Platforms', level: 'Familiar', icon: <FaAws style={{ color: '#ff9900', fontSize: '24px' }} /> },
+  { name: 'Gen AI Tools & Prompt Engineering', category: 'Gen AI & Tech', level: 'Hands-on', icon: <FaTerminal style={{ color: '#9c27b0', fontSize: '24px' }} /> },
+  { name: 'AR/VR Immersive Tech', category: 'Gen AI & Tech', level: 'Trained', icon: <FaVrCardboard style={{ color: '#00bcd4', fontSize: '24px' }} /> },
+  { name: 'Cybersecurity Fundamentals', category: 'Gen AI & Tech', level: 'Certified', icon: <FaShieldAlt style={{ color: '#4caf50', fontSize: '24px' }} /> }
 ]
 
 export default function Skills() {
