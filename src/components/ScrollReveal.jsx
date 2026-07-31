@@ -39,12 +39,14 @@ const ScrollReveal = ({
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window
 
     const ctx = gsap.context(() => {
-      // 1. Container motion & tilt animation (no blur)
+      const isMobile = window.innerWidth <= 768
+
+      // 1. Container motion & tilt animation
       gsap.fromTo(
         el,
         { 
           transformOrigin: '0% 50%', 
-          rotate: baseRotation,
+          rotate: isMobile ? 0 : baseRotation,
           y: translateY
         },
         {
@@ -54,7 +56,7 @@ const ScrollReveal = ({
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top 90%',
+            start: 'top 95%',
             end: rotationEnd,
             scrub: 1
           }
@@ -64,30 +66,30 @@ const ScrollReveal = ({
       const wordElements = el.querySelectorAll('.word')
 
       if (wordElements.length > 0) {
-        // 2. Crisp opacity & motion reveal for individual words
+        // 2. Opacity & motion reveal for individual words
         gsap.fromTo(
           wordElements,
-          { opacity: baseOpacity, y: translateY * 0.4, willChange: 'opacity, transform' },
+          { opacity: isMobile ? 1 : baseOpacity, y: isMobile ? 0 : translateY * 0.4, willChange: 'opacity, transform' },
           {
             ease: 'power2.out',
             opacity: 1,
             y: 0,
-            stagger: 0.04,
+            stagger: isMobile ? 0 : 0.04,
             scrollTrigger: {
               trigger: el,
               scroller,
-              start: 'top 85%',
+              start: 'top 90%',
               end: wordAnimationEnd,
               scrub: 1
             }
           }
         )
       } else {
-        // Crisp opacity & motion reveal for non-text card/component blocks
+        // Opacity & motion reveal for non-text card/component blocks
         gsap.fromTo(
           el,
           { 
-            opacity: baseOpacity, 
+            opacity: isMobile ? 1 : baseOpacity, 
             y: translateY
           },
           {
@@ -97,7 +99,7 @@ const ScrollReveal = ({
             scrollTrigger: {
               trigger: el,
               scroller,
-              start: 'top 85%',
+              start: 'top 90%',
               end: wordAnimationEnd,
               scrub: 1
             }

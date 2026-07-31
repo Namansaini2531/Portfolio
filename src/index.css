@@ -1465,3 +1465,55 @@ html.dark .cert-icon-container,
 html.dark .cert-year-badge {
   background: #252830;
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .cta-wrap {
+    padding: 40px 16px 60px;
+  }
+  
+  .cta-grid {
+    padding: 32px 18px;
+    box-shadow: 6px 6px 0 var(--line);
+    border-radius: 12px;
+  }
+  
+  .cta-info h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  
+  .cta-info p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .cta-info .inline-btn {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    font-size: 13px;
+    padding: 10px 14px;
+    word-break: break-all;
+  }
+  
+  .sticky-note-card.tilt-l,
+  .sticky-note-card.tilt-r {
+    transform: none !important;
+  }
+  
+  .portfolio-header h2,
+  .endorsement-main-title {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+  }
+  
+  .portfolio-subtitle,
+  .endorsement-subtitle {
+    font-size: 14px;
+  }
+  
+  .test-stack {
+    gap: 24px;
+  }
+}
