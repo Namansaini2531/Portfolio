@@ -71,6 +71,7 @@ const CERTIFICATIONS = [
     title: "AWS Academy Cloud Foundations",
     issuer: "Amazon Web Services (AWS)",
     year: "2026",
+    image: "/aws-cloud-foundations-certificate.jpg",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v8M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
