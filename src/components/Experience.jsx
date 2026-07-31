@@ -5,7 +5,7 @@ const EXPERIENCES = [
     role: 'Product Engineering Intern',
     company: 'MarTechAdda',
     type: 'Full-time',
-    duration: 'Jun 2026 – Present · 2 mos',
+    duration: '15 Jun 2026 – 31 Jul 2026 · 1.5 mos',
     location: 'Remote',
     description: 'Contributing to product engineering and full-stack software development with a focus on scalable solutions and performance.',
     skills: ['Product Engineering', 'Full-Stack Development', 'Problem Solving'],

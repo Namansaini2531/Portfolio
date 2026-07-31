@@ -7,6 +7,7 @@ const CERTIFICATIONS = [
     title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
     issuer: "Oracle Cloud Infrastructure",
     year: "2025",
+    image: "/oracle-ai-certificate.jpg",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EA4335" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
@@ -18,6 +19,7 @@ const CERTIFICATIONS = [
     title: "Generative AI Mastermind",
     issuer: "Outskill",
     year: "2025",
+    image: "/outskill-genai-certificate.jpg",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBC05" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -29,6 +31,7 @@ const CERTIFICATIONS = [
     title: "AR/VR Immersive Technology Training & Project Program",
     issuer: "Aalgorix",
     year: "2025",
+    image: "/ar-vr-certificate.jpg",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="6" cy="12" r="3" />
@@ -55,6 +58,7 @@ const CERTIFICATIONS = [
     title: "Soft Skills Course - Complete Professional Development",
     issuer: "GeeksforGeeks",
     year: "2025",
+    image: "/soft-skills-certificate.jpg",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A142F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
