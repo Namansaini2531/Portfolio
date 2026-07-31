@@ -36,8 +36,8 @@ export default function Nav() {
       <div className="nav-container">
         {/* Left Side: Logo */}
         <a href="#about" className="logo-group" onClick={closeMenu}>
-          <div className="logo-badge" style={{ background: 'var(--line)', width: '32px', height: '32px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: 'var(--yellow)', fontSize: '18px', fontWeight: 'bold' }}>✦</span>
+          <div className="logo-badge" style={{ background: 'var(--line)', width: '34px', height: '34px', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--line)' }}>
+            <img src="/naman.jpg" alt="Naman" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div className="logo-text-wrapper">
             <span className="logo-name">Naman</span>
@@ -48,6 +48,7 @@ export default function Nav() {
         <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
           <a href="#about" onClick={closeMenu}>About</a>
           <a href="#skills" onClick={closeMenu}>Skills</a>
+          <a href="#experience" onClick={closeMenu}>Experience</a>
           <a href="#portfolio" onClick={closeMenu}>Projects</a>
           <a href="#testimonials" onClick={closeMenu}>Endorsements</a>
           <a href="#certifications" onClick={closeMenu} className="nav-wavy">Certifications</a>

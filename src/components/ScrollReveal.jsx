@@ -45,8 +45,8 @@ const ScrollReveal = ({
       // Smooth motion entrance (Translation Y & rotation tilt only)
       gsap.fromTo(
         el,
-        { 
-          transformOrigin: '0% 50%', 
+        {
+          transformOrigin: '0% 50%',
           rotate: isMobile ? 0 : baseRotation,
           y: isMobile ? 0 : translateY,
           opacity: 1

@@ -18,7 +18,7 @@ const PROJECTS = [
     title: 'DBT-Aadhaar-Seeding-Awareness-Portal',
     tech: 'HTML, CSS, JavaScript',
     image: '/dbt-portal.png',
-    link: 'https://github.com/Namansaini2531/DBT-Aadhaar-Seeding-Awareness-Portal'
+    link: 'https://direct-bt.vercel.app'
   },
   {
     label: 'DSA & System Design',
@@ -82,11 +82,11 @@ export default function Portfolio() {
                 blurStrength={6}
               >
                 {p.link ? (
-                  <a href={p.link} target="_blank" rel="noreferrer" className="port-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                  <a href={p.link} target="_blank" rel="noreferrer" className="port-card" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
                     {CardContent}
                   </a>
                 ) : (
-                  <div className="port-card">
+                  <div className="port-card" style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
                     {CardContent}
                   </div>
                 )}

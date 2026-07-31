@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
 
 const CERTIFICATIONS = [
@@ -41,6 +42,7 @@ const CERTIFICATIONS = [
     title: "Introduction to Cybersecurity",
     issuer: "Cisco Networking Academy",
     year: "2026",
+    image: "/cybersecurity-certificate.jpg",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -75,6 +77,8 @@ const CERTIFICATIONS = [
 ]
 
 export default function Certifications() {
+  const [activeCert, setActiveCert] = useState(null)
+
   return (
     <section id="certifications" className="certifications-section">
       <div className="wrap">
@@ -104,7 +108,14 @@ export default function Certifications() {
                   <span className="cert-year-badge">{cert.year}</span>
                 </div>
                 
-                <h3 className="cert-title-text">{cert.title}</h3>
+                <h3 
+                  className={`cert-title-text ${cert.image ? 'clickable' : ''}`}
+                  onClick={() => cert.image && setActiveCert(cert)}
+                  style={cert.image ? { cursor: 'pointer' } : {}}
+                  title={cert.image ? "Click to view certificate" : ""}
+                >
+                  {cert.title}
+                </h3>
                 
                 <div className="cert-divider"></div>
                 
@@ -124,6 +135,21 @@ export default function Certifications() {
         </div>
 
       </div>
+
+      {/* Certificate Modal */}
+      {activeCert && (
+        <div className="cert-modal-backdrop" onClick={() => setActiveCert(null)}>
+          <div className="cert-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="cert-modal-close" onClick={() => setActiveCert(null)} aria-label="Close modal">
+              &times;
+            </button>
+            <h3 className="cert-modal-title">{activeCert.title}</h3>
+            <div className="cert-modal-img-wrapper">
+              <img src={activeCert.image} alt={activeCert.title} className="cert-modal-img" />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

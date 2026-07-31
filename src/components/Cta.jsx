@@ -9,7 +9,7 @@ export default function Cta() {
             <div className="cta-info" style={{ textAlign: 'center' }}>
               <h3>Open to full-time &amp; internship opportunities 🚀</h3>
               <p style={{ maxWidth: '640px', margin: '0 auto 28px' }}>
-                I'm a CSE student at GLBITM (Class of '28) actively looking for <strong>SDE internships</strong> and <strong>entry-level roles</strong> in backend development, full-stack engineering, or cybersecurity. Reach out directly via email or connect with me on LinkedIn!
+                I'm a CSE student at GLBITM (Class of '28) actively looking for <strong>SDE internships</strong> and <strong>entry-level roles</strong> in backend development, DevOps, or cybersecurity. Reach out directly via email or connect with me on LinkedIn!
               </p>
               <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <a 
