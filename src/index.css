@@ -1472,6 +1472,45 @@ html.dark .cert-year-badge {
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
+  .nav-container {
+    padding: 10px 14px;
+  }
+
+  .logo-group {
+    gap: 6px;
+  }
+
+  .logo-name {
+    font-size: 18px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .resume-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .resume-btn svg {
+    margin-right: 4px !important;
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .hamburger-btn {
+    width: 34px;
+    height: 34px;
+    padding: 6px 4px;
+  }
+
   .cta-wrap {
     padding: 40px 16px 60px;
   }
