@@ -74,11 +74,11 @@ export default function Portfolio() {
             )
 
             return (
-              <ScrollReveal 
-                key={i} 
-                baseRotation={i % 2 === 0 ? -3 : 3} 
-                translateY={50} 
-                baseOpacity={0.2} 
+              <ScrollReveal
+                key={i}
+                baseRotation={i % 2 === 0 ? -3 : 3}
+                translateY={50}
+                baseOpacity={0.2}
                 blurStrength={6}
               >
                 {p.link ? (

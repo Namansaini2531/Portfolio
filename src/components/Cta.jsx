@@ -1,35 +1,131 @@
+import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
 
 export default function Cta() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState({ loading: false, success: false, error: '' })
+
+  const handleChange = (e) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus({ loading: true, success: false, error: '' })
+
+    try {
+      const res = await fetch('http://localhost:3001/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      const data = await res.json()
+
+      if (res.ok && data.success) {
+        setStatus({ loading: false, success: true, error: '' })
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        setStatus({ loading: false, success: false, error: data.error || 'Failed to send message.' })
+      }
+    } catch (err) {
+      console.error(err)
+      setStatus({ loading: false, success: false, error: 'Cannot connect to Nodemailer server. Make sure `npm run server` is running.' })
+    }
+  }
+
   return (
-    <section className="cta-wrap" id="hire">
+    <section className="cta-canvas-section" id="hire">
       <div className="wrap">
         <ScrollReveal translateY={30} baseRotation={-1} baseOpacity={0.2}>
-          <div className="cta-grid" style={{ gridTemplateColumns: '1fr', textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-            <div className="cta-info" style={{ textAlign: 'center' }}>
-              <h3>Open to full-time &amp; internship opportunities 🚀</h3>
-              <p style={{ maxWidth: '640px', margin: '0 auto 28px' }}>
-                I'm a CSE student at GLBITM (Class of '28) actively looking for <strong>SDE internships</strong> and <strong>entry-level roles</strong> in backend development, DevOps, or cybersecurity. Reach out directly via email or connect with me on LinkedIn!
-              </p>
-              <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a 
-                  href="mailto:saininaman643@gmail.com" 
-                  className="btn inline-btn" 
-                  style={{ background: 'var(--yellow)' }}
-                >
-                  ✉️ saininaman643@gmail.com
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/naman-saini-b19967333" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="btn inline-btn" 
-                  style={{ background: 'var(--blue)', color: '#fff' }}
-                >
-                  View LinkedIn Profile ↗
-                </a>
+          <div className="contact-canvas-grid">
+            
+            {/* Left Side: Handwritten Callout */}
+            <div className="contact-left-col">
+              <div className="contact-pink-badge">
+                Contact here
               </div>
+
+              {/* Curved Arrow SVG */}
+              <div className="curved-arrow-wrapper">
+                <svg width="45" height="55" viewBox="0 0 50 60" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10 5 Q 35 25, 25 50" />
+                  <polyline points="18 42, 25 52, 32 44" />
+                </svg>
+              </div>
+
+              <p className="contact-hand-text">
+                Have a project idea?<br />
+                just say me <strong>Hi.</strong>
+              </p>
             </div>
+
+            {/* Right Side: Highlighted Underline Input Form */}
+            <div className="contact-right-col">
+              {status.success ? (
+                <div className="contact-success-msg">
+                  🎉 Message sent successfully! I'll get back to you soon.
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="contact-hand-form">
+                  {/* Name Input Row */}
+                  <div className="hand-input-row">
+                    <span className="input-hl-tag pink-hl">Name</span>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Zainab Nisa"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="hand-underline-input"
+                    />
+                  </div>
+
+                  {/* Email Input Row */}
+                  <div className="hand-input-row">
+                    <span className="input-hl-tag yellow-hl">Your email</span>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="zainab123@gmail.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="hand-underline-input"
+                    />
+                  </div>
+
+                  {/* Message Input Row */}
+                  <div className="hand-input-row">
+                    <span className="input-hl-tag blue-hl">Your Message</span>
+                    <input
+                      type="text"
+                      name="message"
+                      placeholder="I want to discuss you about ......."
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      className="hand-underline-input"
+                    />
+                  </div>
+
+                  {status.error && (
+                    <div className="contact-error-msg">
+                      ⚠️ {status.error}
+                    </div>
+                  )}
+
+                  {/* Send Button */}
+                  <div className="contact-btn-row">
+                    <button type="submit" disabled={status.loading} className="contact-black-btn">
+                      {status.loading ? 'Sending...' : 'Send Here'}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+
           </div>
         </ScrollReveal>
       </div>
