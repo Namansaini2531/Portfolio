@@ -1487,12 +1487,62 @@ html.dark .skill-icon-badge {
 }
 
 /* Certifications Section Styling */
+.cert-section,
 .certifications-section {
   padding: 100px 28px 80px;
   position: relative;
   background: var(--cream);
   border-bottom: 4px solid var(--line);
 }
+
+.cert-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.cert-badge {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 6px 18px;
+  border: 2.5px solid var(--line);
+  border-radius: 30px;
+  background: var(--blue);
+  color: #141414;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 12px;
+  transform: rotate(-1.5deg);
+  box-shadow: 3px 3px 0 var(--line);
+}
+
+.cert-main-title {
+  font-size: 42px;
+  font-weight: 850;
+  margin: 0 0 12px;
+  letter-spacing: -1.5px;
+  color: var(--line);
+  line-height: 1.3;
+}
+
+.hl-cert {
+  background: var(--yellow);
+  color: #141414;
+  padding: 4px 16px;
+  border: 3px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 var(--line);
+  display: inline-block;
+}
+
+.cert-subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+  line-height: 1.6;
+  margin: 0;
+}
+
 
 .cert-grid {
   display: grid;
@@ -1532,6 +1582,10 @@ html.dark .skill-icon-badge {
   box-shadow: 7px 7px 0 var(--line);
 }
 
+.cert-card.has-modal-trigger {
+  cursor: pointer;
+}
+
 .cert-card-top {
   display: flex;
   justify-content: space-between;
@@ -1539,7 +1593,8 @@ html.dark .skill-icon-badge {
   margin-bottom: 20px;
 }
 
-.cert-icon-container {
+.cert-icon-container,
+.cert-icon-wrapper {
   padding: 10px;
   border-radius: 10px;
   border: 2px solid var(--line);
@@ -1550,7 +1605,8 @@ html.dark .skill-icon-badge {
   justify-content: center;
 }
 
-.cert-year-badge {
+.cert-year-badge,
+.cert-year-tag {
   font-size: 12px;
   font-weight: 700;
   padding: 4px 12px;
@@ -1561,7 +1617,8 @@ html.dark .skill-icon-badge {
   color: var(--line);
 }
 
-.cert-title-text {
+.cert-title-text,
+.cert-title {
   font-size: 17px;
   font-weight: 800;
   color: var(--line);
@@ -1570,7 +1627,8 @@ html.dark .skill-icon-badge {
   transition: color 0.15s ease;
 }
 
-.cert-card:hover .cert-title-text {
+.cert-card:hover .cert-title-text,
+.cert-card:hover .cert-title {
   color: #3b82f6;
 }
 
@@ -1607,7 +1665,9 @@ html.dark .cert-card {
 }
 
 html.dark .cert-icon-container,
-html.dark .cert-year-badge {
+html.dark .cert-icon-wrapper,
+html.dark .cert-year-badge,
+html.dark .cert-year-tag {
   background: #252830;
 }
 

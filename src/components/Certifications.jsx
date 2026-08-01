@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import ScrollReveal from './ScrollReveal'
+import { FaAws, FaBrain, FaVrCardboard, FaShieldHalved, FaUserGraduate } from 'react-icons/fa6'
 
 const CERTIFICATIONS = [
   {
@@ -9,62 +10,8 @@ const CERTIFICATIONS = [
     year: "2025",
     image: "/oracle-ai-certificate.webp",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EA4335" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    )
-  },
-  {
-    id: "cert-2",
-    title: "Generative AI Mastermind",
-    issuer: "Outskill",
-    year: "2025",
-    image: "/outskill-genai-certificate.webp",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBC05" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-      </svg>
-    )
-  },
-  {
-    id: "cert-3",
-    title: "AR/VR Immersive Technology Training & Project Program",
-    issuer: "Aalgorix",
-    year: "2025",
-    image: "/ar-vr-certificate.webp",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="6" cy="12" r="3" />
-        <circle cx="18" cy="12" r="3" />
-        <path d="M6 15h12M12 9v3" />
-      </svg>
-    )
-  },
-  {
-    id: "cert-4",
-    title: "Introduction to Cybersecurity",
-    issuer: "Cisco Networking Academy",
-    year: "2026",
-    image: "/cybersecurity-certificate.webp",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 11l2 2 4-4" />
-      </svg>
-    )
-  },
-  {
-    id: "cert-5",
-    title: "Soft Skills Course - Complete Professional Development",
-    issuer: "GeeksforGeeks",
-    year: "2025",
-    image: "/soft-skills-certificate.webp",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#AB47BC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#EA4335">
+        <path d="M16.2 3H7.8C3.5 3 0 6.5 0 10.8v2.4C0 17.5 3.5 21 7.8 21h8.4c4.3 0 7.8-3.5 7.8-7.8v-2.4C24 6.5 20.5 3 16.2 3zm4.2 10.2c0 2.3-1.9 4.2-4.2 4.2H7.8C5.5 17.4 3.6 15.5 3.6 13.2v-2.4c0-2.3 1.9-4.2 4.2-4.2h8.4c2.3 0 4.2 1.9 4.2 4.2v2.4z"/>
       </svg>
     )
   },
@@ -74,11 +21,39 @@ const CERTIFICATIONS = [
     issuer: "AWS Academy",
     year: "2025",
     image: "/aws-cloud-foundations-certificate.webp",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 9l6 6 6-6" />
-      </svg>
-    )
+    icon: <FaAws size={26} color="#FF9900" />
+  },
+  {
+    id: "cert-3",
+    title: "AR/VR Immersive Technology Training & Project Program",
+    issuer: "Aalgorix",
+    year: "2025",
+    image: "/ar-vr-certificate.webp",
+    icon: <FaVrCardboard size={24} color="#4285F4" />
+  },
+  {
+    id: "cert-4",
+    title: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    year: "2026",
+    image: "/cybersecurity-certificate.webp",
+    icon: <FaShieldHalved size={24} color="#34A853" />
+  },
+  {
+    id: "cert-2",
+    title: "Generative AI Mastermind",
+    issuer: "Outskill",
+    year: "2025",
+    image: "/outskill-genai-certificate.webp",
+    icon: <FaBrain size={24} color="#FBBC05" />
+  },
+  {
+    id: "cert-5",
+    title: "Soft Skills Course - Complete Professional Development",
+    issuer: "GeeksforGeeks",
+    year: "2025",
+    image: "/soft-skills-certificate.webp",
+    icon: <FaUserGraduate size={24} color="#AB47BC" />
   }
 ]
 
@@ -126,14 +101,14 @@ export default function Certifications() {
                 onClick={() => cert.image && setActiveCert(cert)}
               >
                 <div className="cert-card-top">
-                  <div className="cert-icon-wrapper">
+                  <div className="cert-icon-container">
                     {cert.icon}
                   </div>
-                  <span className="cert-year-tag">{cert.year}</span>
+                  <span className="cert-year-badge">{cert.year}</span>
                 </div>
                 
                 <h3 
-                  className="cert-title"
+                  className={`cert-title-text ${cert.image ? 'clickable' : ''}`}
                   title={cert.image ? "Click to view certificate" : ""}
                 >
                   {cert.title}

@@ -120,7 +120,7 @@ export default function Cta() {
                       <input
                         type="text"
                         name="name"
-                        placeholder="Zainab Nisa"
+                        placeholder="Your name"
                         value={formData.name}
                         onChange={handleChange}
                         className="hand-underline-input"
@@ -138,7 +138,7 @@ export default function Cta() {
                       <input
                         type="email"
                         name="email"
-                        placeholder="zainab123@gmail.com"
+                        placeholder="your-email@domain.com"
                         value={formData.email}
                         onChange={handleChange}
                         className="hand-underline-input"
