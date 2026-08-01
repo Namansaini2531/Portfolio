@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ScrollReveal from './ScrollReveal'
 
 const CERTIFICATIONS = [
@@ -7,7 +7,7 @@ const CERTIFICATIONS = [
     title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
     issuer: "Oracle Cloud Infrastructure",
     year: "2025",
-    image: "/oracle-ai-certificate.jpg",
+    image: "/oracle-ai-certificate.webp",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EA4335" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
@@ -19,7 +19,7 @@ const CERTIFICATIONS = [
     title: "Generative AI Mastermind",
     issuer: "Outskill",
     year: "2025",
-    image: "/outskill-genai-certificate.jpg",
+    image: "/outskill-genai-certificate.webp",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBC05" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -31,7 +31,7 @@ const CERTIFICATIONS = [
     title: "AR/VR Immersive Technology Training & Project Program",
     issuer: "Aalgorix",
     year: "2025",
-    image: "/ar-vr-certificate.jpg",
+    image: "/ar-vr-certificate.webp",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="6" cy="12" r="3" />
@@ -45,7 +45,7 @@ const CERTIFICATIONS = [
     title: "Introduction to Cybersecurity",
     issuer: "Cisco Networking Academy",
     year: "2026",
-    image: "/cybersecurity-certificate.jpg",
+    image: "/cybersecurity-certificate.webp",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -58,24 +58,25 @@ const CERTIFICATIONS = [
     title: "Soft Skills Course - Complete Professional Development",
     issuer: "GeeksforGeeks",
     year: "2025",
-    image: "/soft-skills-certificate.jpg",
+    image: "/soft-skills-certificate.webp",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A142F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#AB47BC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     )
   },
   {
     id: "cert-6",
-    title: "AWS Academy Cloud Foundations",
-    issuer: "Amazon Web Services (AWS)",
-    year: "2026",
-    image: "/aws-cloud-foundations-certificate.jpg",
+    title: "AWS Academy Graduate - AWS Academy Cloud Foundations",
+    issuer: "AWS Academy",
+    year: "2025",
+    image: "/aws-cloud-foundations-certificate.webp",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v8M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-        <path d="M22 19c-1-2-4-3-10-3s-9 1-10 3" />
+        <path d="M6 9l6 6 6-6" />
       </svg>
     )
   }
@@ -84,19 +85,29 @@ const CERTIFICATIONS = [
 export default function Certifications() {
   const [activeCert, setActiveCert] = useState(null)
 
+  // Preload all certificate images in the background so modal popups are instant
+  useEffect(() => {
+    CERTIFICATIONS.forEach(cert => {
+      if (cert.image) {
+        const img = new Image()
+        img.src = cert.image
+      }
+    })
+  }, [])
+
   return (
-    <section id="certifications" className="certifications-section">
+    <section className="cert-section" id="certifications">
       <div className="wrap">
         
         {/* Section Title */}
         <ScrollReveal baseOpacity={0.15} enableBlur={true} blurStrength={6}>
-          <div className="endorsement-title-row" style={{ marginBottom: '50px' }}>
-            <h2 className="endorsement-main-title">
-              <span className="endorsement-badge" style={{ background: 'var(--yellow)', transform: 'rotate(1.5deg)' }}>CREDENTIALS</span>{' '}
-              CERTIFICATIONS & <span className="hl-peers" style={{ background: 'var(--blue)' }}>BADGES</span>
+          <div className="cert-header">
+            <span className="cert-badge">CREDENTIALS &amp; CERTIFICATIONS</span>
+            <h2 className="cert-main-title">
+              VERIFIED <span className="hl-cert">ACHIEVEMENTS</span>
             </h2>
-            <p className="endorsement-subtitle">
-              Industry recognized certifications in Artificial Intelligence, Cloud, Cybersecurity, and Immersive Tech.
+            <p className="cert-subtitle">
+              Professional industry certifications, cloud credentials, and specialized engineering training.
             </p>
           </div>
         </ScrollReveal>
@@ -104,19 +115,25 @@ export default function Certifications() {
         {/* Grid */}
         <div className="cert-grid">
           {CERTIFICATIONS.map((cert, index) => (
-            <ScrollReveal key={cert.id} baseRotation={index % 2 === 0 ? -2 : 2} translateY={35} baseOpacity={0.2} blurStrength={6}>
-              <div className="cert-card">
+            <ScrollReveal 
+              key={cert.id} 
+              baseRotation={index % 2 === 0 ? -1.5 : 1.5} 
+              translateY={30} 
+              baseOpacity={0.2}
+            >
+              <div 
+                className={`cert-card ${cert.image ? 'has-modal-trigger' : ''}`}
+                onClick={() => cert.image && setActiveCert(cert)}
+              >
                 <div className="cert-card-top">
-                  <div className="cert-icon-container">
+                  <div className="cert-icon-wrapper">
                     {cert.icon}
                   </div>
-                  <span className="cert-year-badge">{cert.year}</span>
+                  <span className="cert-year-tag">{cert.year}</span>
                 </div>
                 
                 <h3 
-                  className={`cert-title-text ${cert.image ? 'clickable' : ''}`}
-                  onClick={() => cert.image && setActiveCert(cert)}
-                  style={cert.image ? { cursor: 'pointer' } : {}}
+                  className="cert-title"
                   title={cert.image ? "Click to view certificate" : ""}
                 >
                   {cert.title}
@@ -150,7 +167,13 @@ export default function Certifications() {
             </button>
             <h3 className="cert-modal-title">{activeCert.title}</h3>
             <div className="cert-modal-img-wrapper">
-              <img src={activeCert.image} alt={activeCert.title} className="cert-modal-img" />
+              <img 
+                src={activeCert.image} 
+                alt={activeCert.title} 
+                className="cert-modal-img"
+                loading="eager"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
