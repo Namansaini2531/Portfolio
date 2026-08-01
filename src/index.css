@@ -1503,7 +1503,7 @@ html.dark .cert-year-badge {
   border-radius: 16px;
   box-shadow: 10px 10px 0 var(--line);
   max-width: 900px;
-  width: 100%;
+  width: 95%;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -1555,17 +1555,19 @@ html.dark .cert-modal-content {
 
 .cert-modal-img-wrapper {
   width: 100%;
-  overflow-y: auto;
   border: 2px solid var(--line);
   border-radius: 8px;
   background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .cert-modal-img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 72vh;
+  width: auto;
   height: auto;
   display: block;
   object-fit: contain;
