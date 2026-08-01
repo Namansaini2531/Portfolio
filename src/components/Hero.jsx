@@ -50,13 +50,16 @@ export default function Hero() {
               I turn 💡 Ideas<br />
               into <span className="hl">Interfaces</span>
             </h1>
-            <div className="btn-container">
-              <a href="#portfolio" className="btn">See Portfolio</a>
-              <div className="btn-sketch-arrow">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <line x1="4" y1="4" x2="16" y2="20" />
-                  <line x1="10" y1="4" x2="22" y2="20" />
-                  <line x1="16" y1="4" x2="22" y2="20" />
+            <div className="hero-btn-wrapper">
+              <a href="#portfolio" className="hero-pill-btn">See Portfolio</a>
+              <div className="hero-btn-sparks">
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" stroke="var(--line)" strokeWidth="3.5" strokeLinecap="round">
+                  {/* Top spark - angled downward slightly towards right */}
+                  <line x1="8" y1="10" x2="24" y2="6" />
+                  {/* Middle spark */}
+                  <line x1="14" y1="20" x2="30" y2="24" />
+                  {/* Bottom spark */}
+                  <line x1="10" y1="30" x2="24" y2="40" />
                 </svg>
               </div>
             </div>

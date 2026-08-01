@@ -246,25 +246,39 @@ h1.hero-title {
   margin-top: 6px;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--blue);
-  border: 2px solid var(--line);
-  border-radius: 40px;
-  padding: 15px 30px;
-  font-weight: 600;
-  font-size: 15px;
-  font-family: inherit;
-  cursor: pointer;
-  box-shadow: 4px 4px 0 var(--line);
-  transition: transform .15s ease, box-shadow .15s ease;
+.hero-btn-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
 }
 
-.btn:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--line);
+.hero-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #bae6fd;
+  border: 4px solid var(--line);
+  border-radius: 50px;
+  padding: 14px 44px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--line);
+  text-decoration: none;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  box-shadow: none;
+}
+
+.hero-pill-btn:hover {
+  transform: scale(1.03);
+  background: #7dd3fc;
+}
+
+.hero-btn-sparks {
+  position: absolute;
+  bottom: -32px;
+  right: -42px;
+  pointer-events: none;
+  transform: rotate(32.89deg);
 }
 
 .hero-star-bottom-left {
