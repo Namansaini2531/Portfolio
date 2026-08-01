@@ -1077,6 +1077,7 @@ html.dark .tape-strip {
 
 .hand-underline-textarea {
   flex-grow: 1;
+  width: 100%;
   border: none;
   background: transparent;
   font-family: 'Caveat', cursive, sans-serif;
@@ -1085,10 +1086,11 @@ html.dark .tape-strip {
   color: var(--ink);
   padding: 0 8px;
   outline: none;
-  line-height: 38px;
+  line-height: 40px;
+  height: 120px;
   resize: none;
-  background-image: linear-gradient(to bottom, transparent 36px, var(--line) 37px);
-  background-size: 100% 38px;
+  background-image: linear-gradient(to bottom, transparent 38px, var(--line) 39px);
+  background-size: 100% 40px;
 }
 
 .hand-underline-textarea::placeholder {
@@ -1098,7 +1100,7 @@ html.dark .tape-strip {
 }
 
 .hand-underline-textarea:focus {
-  background-image: linear-gradient(to bottom, transparent 36px, #3b82f6 37px);
+  background-image: linear-gradient(to bottom, transparent 38px, #3b82f6 39px);
 }
 
 .contact-btn-row {
@@ -1147,6 +1149,11 @@ html.dark .contact-black-btn {
   font-weight: 700;
 }
 
+.hand-underline-input,
+.hand-underline-textarea {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .contact-canvas-grid {
     grid-template-columns: 1fr;
@@ -1161,6 +1168,11 @@ html.dark .contact-black-btn {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
+  }
+
+  .hand-underline-input,
+  .hand-underline-textarea {
+    width: 100%;
   }
 
   .hand-underline-input {

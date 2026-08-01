@@ -97,7 +97,7 @@ export default function Cta() {
                   </div>
 
                   {/* Message Input Row */}
-                  <div className="hand-input-row align-start">
+                  <div className="hand-input-row">
                     <span className="input-hl-tag blue-hl">Your Message</span>
                     <textarea
                       name="message"
