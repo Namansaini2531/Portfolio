@@ -26,11 +26,11 @@ export default function Cta() {
         setStatus({ loading: false, success: true, error: '' })
         setFormData({ name: '', email: '', message: '' })
       } else {
-        setStatus({ loading: false, success: false, error: data.error || 'Failed to send message.' })
+        setStatus({ loading: false, success: false, error: data.error || 'Something went wrong. Please try again later.' })
       }
     } catch (err) {
       console.error(err)
-      setStatus({ loading: false, success: false, error: 'Cannot connect to Nodemailer server. Make sure `npm run server` is running.' })
+      setStatus({ loading: false, success: false, error: 'Unable to reach the server. Please try again later.' })
     }
   }
 

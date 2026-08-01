@@ -33,7 +33,7 @@ app.post('/api/send-email', async (req, res) => {
   if (result.success) {
     return res.status(200).json({ success: true, message: 'Message sent successfully!' });
   } else {
-    return res.status(500).json({ error: result.error || 'Failed to send email via SMTP.' });
+    return res.status(500).json({ error: 'Unable to send message at this time. Please try again later.' });
   }
 });
 
