@@ -1078,6 +1078,15 @@ html.dark .tape-strip {
   transition: border-color 0.2s ease;
 }
 
+/* Remove default browser autofill light blue background while preserving dot grid */
+.hand-underline-input:-webkit-autofill,
+.hand-underline-input:-webkit-autofill:hover,
+.hand-underline-input:-webkit-autofill:focus,
+.hand-underline-input:-webkit-autofill:active {
+  transition: background-color 600000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--ink) !important;
+}
+
 .hand-underline-input::placeholder {
   color: var(--ink);
   opacity: 0.5;
@@ -1085,8 +1094,8 @@ html.dark .tape-strip {
 }
 
 .hand-underline-input:focus {
-  border-bottom-width: 3px;
-  border-color: #3b82f6;
+  border-bottom-width: 2.5px;
+  border-color: var(--line);
 }
 
 .hand-underline-textarea {
@@ -1114,7 +1123,7 @@ html.dark .tape-strip {
 }
 
 .hand-underline-textarea:focus {
-  background-image: linear-gradient(to bottom, transparent 38px, #3b82f6 39px);
+  background-image: linear-gradient(to bottom, transparent 38px, var(--line) 39px);
 }
 
 .contact-btn-row {
@@ -1144,6 +1153,20 @@ html.dark .contact-black-btn {
 .contact-black-btn:hover {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 var(--line);
+}
+
+.hand-input-row-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.field-error-text {
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 700;
+  margin-left: 6px;
 }
 
 .contact-success-msg {

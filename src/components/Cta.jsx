@@ -5,19 +5,63 @@ export default function Cta() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState({ loading: false, success: false, error: '' })
 
+  const [fieldErrors, setFieldErrors] = useState({ name: '', email: '', message: '' })
+
+  const validate = () => {
+    const errors = { name: '', email: '', message: '' }
+    let isValid = true
+
+    if (!formData.name.trim()) {
+      errors.name = 'Please enter your name.'
+      isValid = false
+    } else if (formData.name.trim().length < 2) {
+      errors.name = 'Name must be at least 2 characters.'
+      isValid = false
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!formData.email.trim()) {
+      errors.email = 'Please enter your email address.'
+      isValid = false
+    } else if (!emailRegex.test(formData.email.trim())) {
+      errors.email = 'Please enter a valid email address.'
+      isValid = false
+    }
+
+    if (!formData.message.trim()) {
+      errors.message = 'Please write your message.'
+      isValid = false
+    } else if (formData.message.trim().length < 10) {
+      errors.message = 'Message must be at least 10 characters long.'
+      isValid = false
+    }
+
+    setFieldErrors(errors)
+    return isValid
+  }
+
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    if (fieldErrors[e.target.name]) {
+      setFieldErrors(prev => ({ ...prev, [e.target.name]: '' }))
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!validate()) return
+
     setStatus({ loading: true, success: false, error: '' })
 
     try {
-      const res = await fetch('http://localhost:3001/api/send-email', {
+      const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim()
+        })
       })
 
       const data = await res.json()
@@ -25,6 +69,7 @@ export default function Cta() {
       if (res.ok && data.success) {
         setStatus({ loading: false, success: true, error: '' })
         setFormData({ name: '', email: '', message: '' })
+        setFieldErrors({ name: '', email: '', message: '' })
       } else {
         setStatus({ loading: false, success: false, error: data.error || 'Something went wrong. Please try again later.' })
       }
@@ -69,45 +114,57 @@ export default function Cta() {
               ) : (
                 <form onSubmit={handleSubmit} className="contact-hand-form">
                   {/* Name Input Row */}
-                  <div className="hand-input-row">
-                    <span className="input-hl-tag pink-hl">Name</span>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Zainab Nisa"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="hand-underline-input"
-                    />
+                  <div className="hand-input-row-container">
+                    <div className="hand-input-row">
+                      <span className="input-hl-tag pink-hl">Name</span>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Zainab Nisa"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="hand-underline-input"
+                      />
+                    </div>
+                    {fieldErrors.name && (
+                      <span className="field-error-text">⚠️ {fieldErrors.name}</span>
+                    )}
                   </div>
 
                   {/* Email Input Row */}
-                  <div className="hand-input-row">
-                    <span className="input-hl-tag yellow-hl">Your email</span>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="zainab123@gmail.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="hand-underline-input"
-                    />
+                  <div className="hand-input-row-container">
+                    <div className="hand-input-row">
+                      <span className="input-hl-tag yellow-hl">Your email</span>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="zainab123@gmail.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="hand-underline-input"
+                      />
+                    </div>
+                    {fieldErrors.email && (
+                      <span className="field-error-text">⚠️ {fieldErrors.email}</span>
+                    )}
                   </div>
 
                   {/* Message Input Row */}
-                  <div className="hand-input-row">
-                    <span className="input-hl-tag blue-hl">Your Message</span>
-                    <textarea
-                      name="message"
-                      rows={3}
-                      placeholder="I want to discuss you about ......."
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      className="hand-underline-textarea"
-                    />
+                  <div className="hand-input-row-container">
+                    <div className="hand-input-row">
+                      <span className="input-hl-tag blue-hl">Your Message</span>
+                      <textarea
+                        name="message"
+                        rows={3}
+                        placeholder="I want to discuss you about ......."
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="hand-underline-textarea"
+                      />
+                    </div>
+                    {fieldErrors.message && (
+                      <span className="field-error-text">⚠️ {fieldErrors.message}</span>
+                    )}
                   </div>
 
                   {status.error && (
