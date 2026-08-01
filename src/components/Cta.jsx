@@ -97,16 +97,16 @@ export default function Cta() {
                   </div>
 
                   {/* Message Input Row */}
-                  <div className="hand-input-row">
+                  <div className="hand-input-row align-start">
                     <span className="input-hl-tag blue-hl">Your Message</span>
-                    <input
-                      type="text"
+                    <textarea
                       name="message"
+                      rows={3}
                       placeholder="I want to discuss you about ......."
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="hand-underline-input"
+                      className="hand-underline-textarea"
                     />
                   </div>
 
