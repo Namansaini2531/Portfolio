@@ -256,21 +256,23 @@ h1.hero-title {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #bae6fd;
-  border: 4px solid var(--line);
+  background: #7dd3fc;
+  border: 3.5px solid var(--line);
   border-radius: 50px;
   padding: 14px 44px;
   font-size: 19px;
-  font-weight: 700;
-  color: var(--line);
+  font-weight: 800;
+  color: #141414;
   text-decoration: none;
-  transition: transform 0.15s ease, background-color 0.15s ease;
-  box-shadow: none;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 4px 4px 0 var(--line);
 }
 
 .hero-pill-btn:hover {
-  transform: scale(1.03);
-  background: #7dd3fc;
+  transform: translate(-2px, -2px);
+  background: #38bdf8;
+  box-shadow: 6px 6px 0 var(--line);
+  color: #000000;
 }
 
 .hero-btn-sparks {
@@ -2019,6 +2021,54 @@ html.dark .cert-modal-content {
   html.dark .hamburger-btn {
     background: #252830;
   }
+/* ==========================================================================
+   SKILLS SECTION BADGES & HIGHLIGHTS
+   ========================================================================== */
+.skills-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.tech-badge {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 6px 18px;
+  border: 2.5px solid var(--line);
+  border-radius: 30px;
+  background: var(--yellow);
+  color: #141414;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 14px;
+  box-shadow: 3px 3px 0 var(--line);
+  transform: rotate(-1.5deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tech-badge:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 4px 4px 0 var(--line);
+}
+
+.skills-main-title {
+  font-size: 42px;
+  font-weight: 850;
+  margin: 0 0 12px;
+  letter-spacing: -1.5px;
+  color: var(--line);
+  line-height: 1.3;
+}
+
+.hl-toolkit {
+  background: var(--blue);
+  color: #141414;
+  padding: 4px 16px;
+  border: 3px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 var(--line);
+  display: inline-block;
 }
 
 /* ==========================================================================
