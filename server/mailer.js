@@ -11,8 +11,14 @@ dotenv.config();
  */
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: process.env.SMTP_SECURE === 'true', // true for 465, false for 587
+  port: parseInt(process.env.SMTP_PORT || '465'),
+  secure: process.env.SMTP_SECURE !== undefined ? process.env.SMTP_SECURE === 'true' : true, // Direct SSL/TLS (port 465) is significantly faster than port 587 STARTTLS
+  pool: true, // Use connection pooling to keep SMTP socket warm
+  maxConnections: 5,
+  maxMessages: 100,
+  connectionTimeout: 5000, // 5s connection timeout
+  greetingTimeout: 4000,   // 4s greeting timeout
+  socketTimeout: 8000,     // 8s socket timeout
   auth: {
     user: process.env.SMTP_USER,     // Your SMTP email address
     pass: process.env.SMTP_PASSWORD  // Your SMTP password or App Password
