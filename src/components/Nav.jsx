@@ -36,8 +36,12 @@ export default function Nav() {
       <div className="nav-container">
         {/* Left Side: Logo */}
         <a href="#about" className="logo-group" onClick={closeMenu}>
-          <div className="logo-badge" style={{ background: 'var(--line)', width: '34px', height: '34px', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--line)' }}>
-            <img src="/naman.jpg" alt="Naman" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="logo-badge" style={{ background: 'var(--yellow)', width: '36px', height: '36px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2.5px solid var(--line)', boxShadow: '2px 2px 0 var(--line)', color: 'var(--line)' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="7 8 3 12 7 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+              <polyline points="17 8 21 12 17 16" />
+            </svg>
           </div>
           <div className="logo-text-wrapper">
             <span className="logo-name">Naman</span>
