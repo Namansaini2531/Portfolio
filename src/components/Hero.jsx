@@ -89,8 +89,10 @@ export default function Hero() {
                 <div className="dot"></div>
                 <div className="bulb">💡</div>
                 <div className="screen" style={{ overflow: 'hidden', padding: 0 }}>
-                  <img src="/naman.jpg" alt="Naman Saini" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <div className="mockup-name hand" style={{ position: 'absolute', bottom: '12px', left: '50%', transform: 'translateX(-50%)', background: 'rgba(255, 255, 255, 0.95)', color: '#141414', fontSize: '20px', fontWeight: '800', padding: '3px 16px', borderRadius: '20px', border: '2.5px solid #141414', whiteSpace: 'nowrap', zIndex: 10, boxShadow: '2px 2px 0 #141414' }}>Naman Saini</div>
+                  <a href="https://github.com/Namansaini2531" target="_blank" rel="noreferrer" style={{ display: 'block', width: '100%', height: '100%', cursor: 'pointer', textDecoration: 'none' }}>
+                    <img src="/naman.jpg" alt="Naman Saini" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div className="mockup-name hand" style={{ position: 'absolute', bottom: '12px', left: '50%', transform: 'translateX(-50%)', background: 'rgba(255, 255, 255, 0.95)', color: '#141414', fontSize: '20px', fontWeight: '800', padding: '3px 16px', borderRadius: '20px', border: '2.5px solid #141414', whiteSpace: 'nowrap', zIndex: 10, boxShadow: '2px 2px 0 #141414' }}>Naman Saini</div>
+                  </a>
                 </div>
                 <SpikyStar className="frame-star" size={54} fill="var(--red)" />
               </div>
