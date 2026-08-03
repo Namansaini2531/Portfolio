@@ -21,6 +21,12 @@ export function SpikyStar({ className, size = 50, fill = "var(--pink-deep)", sty
 }
 
 export default function Hero() {
+  const handleBulbClick = () => {
+    const isDark = document.documentElement.classList.contains('dark')
+    const newTheme = isDark ? 'light' : 'dark'
+    window.dispatchEvent(new CustomEvent('theme-toggle', { detail: { theme: newTheme } }))
+  }
+
   return (
     <section className="hero" id="about">
       {/* Pink star bottom-left of the hero section */}
@@ -87,7 +93,15 @@ export default function Hero() {
               <div className="frame">
                 <div className="dot"></div>
                 <div className="dot"></div>
-                <div className="bulb">💡</div>
+                <div 
+                  className="bulb" 
+                  onClick={handleBulbClick} 
+                  title="Click to toggle Light / Dark mode" 
+                  role="button" 
+                  tabIndex={0}
+                >
+                  💡
+                </div>
                 <div className="screen" style={{ overflow: 'hidden', padding: 0 }}>
                   <img src="/naman.jpg" alt="Naman Saini" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <a 

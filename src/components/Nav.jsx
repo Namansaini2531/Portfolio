@@ -20,12 +20,15 @@ export default function Nav() {
   }, [theme])
 
   useEffect(() => {
-    const handleSyncTheme = () => {
-      const isDark = document.documentElement.classList.contains('dark')
-      setTheme(isDark ? 'dark' : 'light')
+    const handleCustomToggle = (e) => {
+      if (e.detail?.theme) {
+        setTheme(e.detail.theme)
+      } else {
+        setTheme(prev => (prev === 'light' ? 'dark' : 'light'))
+      }
     }
-    window.addEventListener('theme-change', handleSyncTheme)
-    return () => window.removeEventListener('theme-change', handleSyncTheme)
+    window.addEventListener('theme-toggle', handleCustomToggle)
+    return () => window.removeEventListener('theme-toggle', handleCustomToggle)
   }, [])
 
   const toggleTheme = () => {
