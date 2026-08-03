@@ -52,7 +52,12 @@ app.post('/api/send-email', async (req, res) => {
   if (isRateLimited(clientIp)) {
     return res.status(429).json({ error: 'Too many messages sent from your IP. Please wait 10 minutes before trying again.' });
   }
-  let { name, email, message } = req.body || {};
+  let { name, email, message, website } = req.body || {};
+
+  // Honeypot bot trap check
+  if (website) {
+    return res.status(200).json({ success: true, message: 'Message sent successfully!' });
+  }
 
   name = typeof name === 'string' ? name.trim() : '';
   email = typeof email === 'string' ? email.trim() : '';

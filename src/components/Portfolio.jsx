@@ -66,10 +66,10 @@ export default function Portfolio() {
                       </div>
                     ) : p.link ? (
                       <a href={p.link} target="_blank" rel="noreferrer" style={{ display: 'block', width: '100%', height: '100%' }}>
-                        <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={p.image} alt={p.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </a>
                     ) : (
-                      <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={p.image} alt={p.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     )}
                     <span className="port-badge" style={{ position: 'absolute', top: '10px', left: '10px', background: 'var(--yellow)', border: '2px solid var(--line)', borderRadius: '20px', padding: '2px 10px', fontSize: '11px', fontWeight: 'bold', color: '#141414', boxShadow: '2px 2px 0 var(--line)' }}>
                       {p.label}

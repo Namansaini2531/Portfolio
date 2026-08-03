@@ -19,8 +19,18 @@ export default function Nav() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  useEffect(() => {
+    const handleSyncTheme = () => {
+      const isDark = document.documentElement.classList.contains('dark')
+      setTheme(isDark ? 'dark' : 'light')
+    }
+    window.addEventListener('theme-change', handleSyncTheme)
+    return () => window.removeEventListener('theme-change', handleSyncTheme)
+  }, [])
+
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light')
+    window.dispatchEvent(new Event('theme-change'))
   }
 
   const toggleMenu = () => {

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
 
 export default function Cta() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', website: '' })
   const [status, setStatus] = useState({ loading: false, success: false, error: '' })
 
   const [fieldErrors, setFieldErrors] = useState({ name: '', email: '', message: '' })
@@ -50,6 +50,13 @@ export default function Cta() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!validate()) return
+
+    // Bot trap: If honeypot field is filled, pretend success without calling API
+    if (formData.website) {
+      setStatus({ loading: false, success: true, error: '' })
+      setFormData({ name: '', email: '', message: '', website: '' })
+      return
+    }
 
     setStatus({ loading: true, success: false, error: '' })
 
@@ -113,6 +120,18 @@ export default function Cta() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="contact-hand-form">
+                  {/* Honeypot Bot Trap (Hidden from real users) */}
+                  <div style={{ display: 'none', visibility: 'hidden' }} aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.website}
+                      onChange={handleChange}
+                    />
+                  </div>
+
                   {/* Name Input Row */}
                   <div className="hand-input-row-container">
                     <div className="hand-input-row">
