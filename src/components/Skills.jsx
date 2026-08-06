@@ -53,10 +53,24 @@ const SKILLS = [
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState('All')
+  const [showAllMobile, setShowAllMobile] = useState(false)
 
   const filteredSkills = activeCategory === 'All' 
     ? SKILLS 
     : SKILLS.filter(s => s.category === activeCategory)
+
+  // On 'All' category when not expanded, limit to initial top 9 skills
+  const isAllCategory = activeCategory === 'All'
+  const displayedSkills = (isAllCategory && !showAllMobile)
+    ? filteredSkills.slice(0, 9)
+    : filteredSkills
+
+  const hasMoreSkills = isAllCategory && filteredSkills.length > 9
+
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat)
+    setShowAllMobile(false)
+  }
 
   return (
     <section className="skills-section" id="skills">
@@ -80,7 +94,7 @@ export default function Skills() {
           {CATEGORIES.map(cat => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => handleCategoryChange(cat)}
               className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
             >
               {cat}
@@ -90,7 +104,7 @@ export default function Skills() {
 
         {/* Grid */}
         <div className="skills-grid">
-          {filteredSkills.map((skill, index) => (
+          {displayedSkills.map((skill, index) => (
             <ScrollReveal key={skill.name} baseRotation={index % 2 === 0 ? -2 : 2} translateY={35} baseOpacity={0.2} blurStrength={5}>
               <div className="skill-card">
                 <div className="skill-card-top">
@@ -107,6 +121,29 @@ export default function Skills() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Load More / Show Less Button */}
+        {hasMoreSkills && (
+          <div className="skills-load-more-container" style={{ display: 'flex', justifyContent: 'center', marginTop: '28px' }}>
+            <button
+              onClick={() => setShowAllMobile(prev => !prev)}
+              className="filter-btn active skills-load-more-btn"
+              style={{
+                padding: '12px 28px',
+                fontSize: '14px',
+                fontWeight: 'bold',
+                letterSpacing: '0.5px',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              <span>{showAllMobile ? 'Show Less Skills' : `Load More Skills (${filteredSkills.length - 9} more)`}</span>
+              <span style={{ fontSize: '16px' }}>{showAllMobile ? '↑' : '↓'}</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
