@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
-import { 
-  FaJava, 
-  FaPython, 
-  FaJsSquare, 
-  FaHtml5, 
-  FaGitAlt, 
-  FaAws, 
-  FaBrain, 
+import {
+  FaJava,
+  FaPython,
+  FaJsSquare,
+  FaHtml5,
+  FaGitAlt,
+  FaAws,
+  FaBrain,
   FaShieldAlt,
   FaTerminal,
   FaVrCardboard,
@@ -29,13 +29,14 @@ const CATEGORIES = [
 // Custom Clean SVG Icons for Brand Logos without dependency overhead
 const OracleIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="#f80000">
-    <path d="M16.2 3H7.8C3.5 3 0 6.5 0 10.8s3.5 7.8 7.8 7.8h8.4c4.3 0 7.8-3.5 7.8-7.8S20.5 3 16.2 3zm-.2 12.2H8c-2.4 0-4.4-2-4.4-4.4S5.6 6.4 8 6.4h8c2.4 0 4.4 2 4.4 4.4s-2 4.4-4.4 4.4z"/>
+    <path d="M16.2 3H7.8C3.5 3 0 6.5 0 10.8s3.5 7.8 7.8 7.8h8.4c4.3 0 7.8-3.5 7.8-7.8S20.5 3 16.2 3zm-.2 12.2H8c-2.4 0-4.4-2-4.4-4.4S5.6 6.4 8 6.4h8c2.4 0 4.4 2 4.4 4.4s-2 4.4-4.4 4.4z" />
   </svg>
 )
 
 const SKILLS = [
   { name: 'Java', category: 'Languages', level: 'Proficient', icon: <FaJava style={{ color: '#e76f51', fontSize: '24px' }} /> },
   { name: 'Python', category: 'Languages', level: 'Intermediate', icon: <FaPython style={{ color: '#3776ab', fontSize: '24px' }} /> },
+  { name: 'AWS', category: 'Tools & Platforms', level: 'Familiar', icon: <FaAws style={{ color: '#ff9900', fontSize: '24px' }} /> },
   { name: 'C++', category: 'Languages', level: 'Intermediate', icon: <FaCode style={{ color: '#00599c', fontSize: '24px' }} /> },
   { name: 'JavaScript', category: 'Languages', level: 'Intermediate', icon: <FaJsSquare style={{ color: '#f7df1e', fontSize: '24px' }} /> },
   { name: 'HTML5 & CSS3', category: 'Languages', level: 'Proficient', icon: <FaHtml5 style={{ color: '#e34f26', fontSize: '24px' }} /> },
@@ -45,7 +46,6 @@ const SKILLS = [
   { name: 'Visual Studio Code', category: 'Tools & Platforms', level: 'Daily Driver', icon: <FaLaptopCode style={{ color: '#007acc', fontSize: '24px' }} /> },
   { name: 'Antigravity', category: 'Tools & Platforms', level: 'Proficient', icon: <SiGoogle style={{ color: '#4285f4', fontSize: '24px' }} /> },
   { name: 'Oracle Cloud Infrastructure', category: 'Tools & Platforms', level: 'Certified Associate', icon: <OracleIcon /> },
-  { name: 'AWS', category: 'Tools & Platforms', level: 'Familiar', icon: <FaAws style={{ color: '#ff9900', fontSize: '24px' }} /> },
   { name: 'Gen AI Tools & Prompt Engineering', category: 'Gen AI & Tech', level: 'Hands-on', icon: <FaTerminal style={{ color: '#9c27b0', fontSize: '24px' }} /> },
   { name: 'AR/VR Immersive Tech', category: 'Gen AI & Tech', level: 'Trained', icon: <FaVrCardboard style={{ color: '#00bcd4', fontSize: '24px' }} /> },
   { name: 'Cybersecurity Fundamentals', category: 'Gen AI & Tech', level: 'Certified', icon: <FaShieldAlt style={{ color: '#4caf50', fontSize: '24px' }} /> }
@@ -55,8 +55,8 @@ export default function Skills() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [showAllMobile, setShowAllMobile] = useState(false)
 
-  const filteredSkills = activeCategory === 'All' 
-    ? SKILLS 
+  const filteredSkills = activeCategory === 'All'
+    ? SKILLS
     : SKILLS.filter(s => s.category === activeCategory)
 
   // On 'All' category when not expanded, limit to initial top 9 skills
