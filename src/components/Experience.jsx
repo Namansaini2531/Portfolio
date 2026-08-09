@@ -45,19 +45,53 @@ export default function Experience() {
         <div className="exp-list">
           {EXPERIENCES.map((exp, index) => (
             <ScrollReveal key={index} translateY={30} baseOpacity={0.2} blurStrength={5}>
-              <div className="exp-card">
-                <div className="exp-card-header">
-                  <div className="exp-logo-badge" style={{ backgroundColor: exp.logoBg }}>
-                    {exp.initials}
-                  </div>
-                  <div className="exp-title-group">
-                    <h3 className="exp-role">{exp.role}</h3>
-                    <div className="exp-company-info">
-                      <span className="exp-company">{exp.company}</span>
-                      <span className="exp-dot">•</span>
-                      <span className="exp-type">{exp.type}</span>
+              <div className="exp-card" style={{ position: 'relative' }}>
+                <div className="exp-card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: '1', minWidth: '220px' }}>
+                    <div className="exp-logo-badge" style={{ backgroundColor: exp.logoBg }}>
+                      {exp.initials}
+                    </div>
+                    <div className="exp-title-group">
+                      <h3 className="exp-role">{exp.role}</h3>
+                      <div className="exp-company-info">
+                        <span className="exp-company">{exp.company}</span>
+                        <span className="exp-dot">•</span>
+                        <span className="exp-type">{exp.type}</span>
+                      </div>
                     </div>
                   </div>
+
+                  {exp.certificateUrl && (
+                    <a
+                      href={exp.certificateUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="exp-cert-link"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        padding: '6px 14px',
+                        background: 'var(--yellow)',
+                        color: 'var(--line)',
+                        fontWeight: '800',
+                        fontSize: '0.85rem',
+                        borderRadius: '8px',
+                        border: '2px solid var(--line)',
+                        boxShadow: '2px 2px 0 var(--line)',
+                        textDecoration: 'none',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                      </svg>
+                      View Certificate ↗
+                    </a>
+                  )}
                 </div>
 
                 <div className="exp-meta-row">
@@ -98,39 +132,6 @@ export default function Experience() {
                         </span>
                       ))}
                     </div>
-                  </div>
-                )}
-
-                {exp.certificateUrl && (
-                  <div className="exp-cert-action" style={{ marginTop: '16px' }}>
-                    <a
-                      href={exp.certificateUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="exp-cert-link"
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        padding: '6px 14px',
-                        background: 'var(--yellow)',
-                        color: 'var(--line)',
-                        fontWeight: '800',
-                        fontSize: '0.85rem',
-                        borderRadius: '8px',
-                        border: '2px solid var(--line)',
-                        boxShadow: '2px 2px 0 var(--line)',
-                        textDecoration: 'none'
-                      }}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                        <polyline points="14 2 14 8 20 8" />
-                        <line x1="16" y1="13" x2="8" y2="13" />
-                        <line x1="16" y1="17" x2="8" y2="17" />
-                      </svg>
-                      View Certificate ↗
-                    </a>
                   </div>
                 )}
               </div>
