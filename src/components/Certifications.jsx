@@ -11,7 +11,7 @@ const CERTIFICATIONS = [
     image: "/oracle-ai-certificate.webp",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#EA4335">
-        <path d="M16.2 3H7.8C3.5 3 0 6.5 0 10.8v2.4C0 17.5 3.5 21 7.8 21h8.4c4.3 0 7.8-3.5 7.8-7.8v-2.4C24 6.5 20.5 3 16.2 3zm4.2 10.2c0 2.3-1.9 4.2-4.2 4.2H7.8C5.5 17.4 3.6 15.5 3.6 13.2v-2.4c0-2.3 1.9-4.2 4.2-4.2h8.4c2.3 0 4.2 1.9 4.2 4.2v2.4z"/>
+        <path d="M16.2 3H7.8C3.5 3 0 6.5 0 10.8v2.4C0 17.5 3.5 21 7.8 21h8.4c4.3 0 7.8-3.5 7.8-7.8v-2.4C24 6.5 20.5 3 16.2 3zm4.2 10.2c0 2.3-1.9 4.2-4.2 4.2H7.8C5.5 17.4 3.6 15.5 3.6 13.2v-2.4c0-2.3 1.9-4.2 4.2-4.2h8.4c2.3 0 4.2 1.9 4.2 4.2v2.4z" />
       </svg>
     )
   },
@@ -73,7 +73,7 @@ export default function Certifications() {
   return (
     <section className="cert-section" id="certifications">
       <div className="wrap">
-        
+
         {/* Section Title */}
         <ScrollReveal baseOpacity={0.15} enableBlur={true} blurStrength={6}>
           <div className="cert-header">
@@ -90,13 +90,13 @@ export default function Certifications() {
         {/* Grid */}
         <div className="cert-grid">
           {CERTIFICATIONS.map((cert, index) => (
-            <ScrollReveal 
-              key={cert.id} 
-              baseRotation={index % 2 === 0 ? -1.5 : 1.5} 
-              translateY={30} 
+            <ScrollReveal
+              key={cert.id}
+              baseRotation={index % 2 === 0 ? -1.5 : 1.5}
+              translateY={30}
               baseOpacity={0.2}
             >
-              <div 
+              <div
                 className={`cert-card ${cert.image ? 'has-modal-trigger' : ''}`}
                 onClick={() => cert.image && setActiveCert(cert)}
               >
@@ -106,16 +106,16 @@ export default function Certifications() {
                   </div>
                   <span className="cert-year-badge">{cert.year}</span>
                 </div>
-                
-                <h3 
+
+                <h3
                   className={`cert-title-text ${cert.image ? 'clickable' : ''}`}
                   title={cert.image ? "Click to view certificate" : ""}
                 >
                   {cert.title}
                 </h3>
-                
+
                 <div className="cert-divider"></div>
-                
+
                 <div className="cert-card-bottom">
                   <span className="cert-issuer-text">{cert.issuer}</span>
                   <span className="cert-verified-badge">
@@ -142,9 +142,9 @@ export default function Certifications() {
             </button>
             <h3 className="cert-modal-title">{activeCert.title}</h3>
             <div className="cert-modal-img-wrapper">
-              <img 
-                src={activeCert.image} 
-                alt={activeCert.title} 
+              <img
+                src={activeCert.image}
+                alt={activeCert.title}
                 className="cert-modal-img"
                 loading="eager"
                 decoding="async"

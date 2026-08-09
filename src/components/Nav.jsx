@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function Nav() {
+export default function Nav({ currentPath = typeof window !== 'undefined' ? window.location.pathname : '/' }) {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') || 'light'
@@ -44,11 +44,38 @@ export default function Nav() {
     setMenuOpen(false)
   }
 
+  const handleNavClick = (e, target) => {
+    closeMenu()
+
+    if (target === '/resources') {
+      e.preventDefault()
+      if (window.location.pathname !== '/resources') {
+        window.history.pushState({}, '', '/resources')
+        window.dispatchEvent(new Event('popstate'))
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
+    if (window.location.pathname === '/resources') {
+      e.preventDefault()
+      window.history.pushState({}, '', '/' + target)
+      window.dispatchEvent(new Event('popstate'))
+      setTimeout(() => {
+        const el = document.querySelector(target)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+        else window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 50)
+    }
+  }
+
+  const isResources = currentPath === '/resources' || (typeof window !== 'undefined' && window.location.pathname === '/resources')
+
   return (
     <header className="site-header">
       <div className="nav-container">
         {/* Left Side: Logo */}
-        <a href="#about" className="logo-group" onClick={closeMenu}>
+        <a href={isResources ? "/" : "#about"} className="logo-group" onClick={(e) => handleNavClick(e, '#about')}>
           <div className="logo-badge" style={{ background: 'var(--yellow)', width: '36px', height: '36px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2.5px solid var(--line)', boxShadow: '2px 2px 0 var(--line)', color: 'var(--line)' }}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="7 8 3 12 7 16" />
@@ -63,11 +90,18 @@ export default function Nav() {
 
         {/* Center: Navigation Links (Desktop + Mobile Drawer) */}
         <nav className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
-          <a href="#about" onClick={closeMenu}>About</a>
-          <a href="#skills" onClick={closeMenu}>Skills</a>
-          <a href="#experience" onClick={closeMenu}>Experience</a>
-          <a href="#portfolio" onClick={closeMenu}>Projects</a>
-          <a href="#hire" onClick={closeMenu}>Contact</a>
+          <a href="#about" onClick={(e) => handleNavClick(e, '#about')}>About</a>
+          <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')}>Skills</a>
+          <a href="#experience" onClick={(e) => handleNavClick(e, '#experience')}>Experience</a>
+          <a href="#portfolio" onClick={(e) => handleNavClick(e, '#portfolio')}>Projects</a>
+          <a 
+            href="/resources" 
+            className={`nav-link-resources ${isResources ? 'active' : ''}`}
+            onClick={(e) => handleNavClick(e, '/resources')}
+          >
+            Resources
+          </a>
+          <a href="#hire" onClick={(e) => handleNavClick(e, '#hire')}>Contact</a>
         </nav>
 
         {/* Right Side: Actions + Hamburger Button */}
