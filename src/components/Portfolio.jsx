@@ -5,19 +5,19 @@ const PROJECTS = [
     label: 'Internship Project',
     title: 'Customer Relationship Management (CRM) Software',
     tech: 'React, Node.js, Express, REST APIs',
-    image: 'mta-crm-ss.png'
+    image: '/mta-crm-ss.webp'
   },
   {
     label: 'Internship Project',
     title: 'Billing Software',
     tech: 'React, TypeScript, Zustand, Tailwind',
-    image: '/ledgerly-billing.png'
+    image: '/ledgerly-billing.webp'
   },
   {
     label: 'Web Development',
     title: 'DBT-Aadhaar-Seeding-Awareness-Portal',
     tech: 'HTML, CSS, JavaScript',
-    image: '/dbt-portal.png',
+    image: '/dbt-portal.webp',
     link: 'https://direct-bt.vercel.app',
     github: 'https://github.com/Namansaini2531/DBT-Aadhaar-Seeding-Awareness-Portal'
   },

@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="footer-brand-col">
             <a href="#about" className="footer-logo">
               <div className="footer-logo-badge">
-                <img src="/naman.jpg" alt="Naman" className="footer-logo-img" />
+                <img src="/naman.webp" alt="Naman" className="footer-logo-img" />
               </div>
               <span className="footer-logo-text">Naman</span>
             </a>

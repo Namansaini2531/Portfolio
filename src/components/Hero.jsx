@@ -103,7 +103,7 @@ export default function Hero() {
                   💡
                 </div>
                 <div className="screen" style={{ overflow: 'hidden', padding: 0 }}>
-                  <img src="/naman.jpg" alt="Naman Saini" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src="/naman.webp" alt="Naman Saini" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <a
                     href="https://github.com/Namansaini2531"
                     target="_blank"

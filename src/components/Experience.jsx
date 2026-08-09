@@ -10,9 +10,9 @@ const EXPERIENCES = [
     location: 'Remote',
     description: 'Contributing to product engineering and full-stack software development with a focus on scalable solutions and performance.',
     skills: ['Product Engineering', 'Full-Stack Development', 'Problem Solving'],
-    certImg: '/martechadda-certificate.png',
+    certImg: '/martechadda-certificate.webp',
     certificateUrl: 'https://pooshti.martechadda.com/verify/CRTI-9421-L5HX',
-    lorUrl: '/martechadda-lor.png',
+    lorUrl: '/martechadda-lor.webp',
     logoBg: '#3b82f6',
     initials: 'MTA'
   },
