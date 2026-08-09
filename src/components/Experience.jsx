@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
 
 const EXPERIENCES = [
@@ -9,7 +10,9 @@ const EXPERIENCES = [
     location: 'Remote',
     description: 'Contributing to product engineering and full-stack software development with a focus on scalable solutions and performance.',
     skills: ['Product Engineering', 'Full-Stack Development', 'Problem Solving'],
+    certImg: '/martechadda-certificate.png',
     certificateUrl: 'https://pooshti.martechadda.com/verify/CRTI-9421-L5HX',
+    lorUrl: '/martechadda-lor.png',
     logoBg: '#3b82f6',
     initials: 'MTA'
   },
@@ -27,6 +30,8 @@ const EXPERIENCES = [
 ]
 
 export default function Experience() {
+  const [activeModal, setActiveModal] = useState(null) // { type: 'cert' | 'lor', img: string, title: string, verifyUrl?: string }
+
   return (
     <section className="experience-section" id="experience">
       <div className="wrap">
@@ -61,37 +66,82 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  {exp.certificateUrl && (
-                    <a
-                      href={exp.certificateUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="exp-cert-link"
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        padding: '6px 14px',
-                        background: 'var(--yellow)',
-                        color: '#000000',
-                        fontWeight: '800',
-                        fontSize: '0.85rem',
-                        borderRadius: '8px',
-                        border: '2px solid var(--line)',
-                        boxShadow: '2px 2px 0 var(--line)',
-                        textDecoration: 'none',
-                        whiteSpace: 'nowrap'
-                      }}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                        <polyline points="14 2 14 8 20 8" />
-                        <line x1="16" y1="13" x2="8" y2="13" />
-                        <line x1="16" y1="17" x2="8" y2="17" />
-                      </svg>
-                      View Certificate ↗
-                    </a>
-                  )}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                    {(exp.certImg || exp.certificateUrl) && (
+                      <button
+                        onClick={() => {
+                          if (exp.certImg) {
+                            setActiveModal({
+                              type: 'cert',
+                              img: exp.certImg,
+                              title: `Certificate of Internship — ${exp.company}`,
+                              verifyUrl: exp.certificateUrl
+                            })
+                          } else if (exp.certificateUrl) {
+                            window.open(exp.certificateUrl, '_blank')
+                          }
+                        }}
+                        className="exp-cert-link"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          padding: '6px 14px',
+                          background: 'var(--yellow)',
+                          color: '#000000',
+                          fontWeight: '800',
+                          fontSize: '0.85rem',
+                          borderRadius: '8px',
+                          border: '2px solid var(--line)',
+                          boxShadow: '2px 2px 0 var(--line)',
+                          cursor: 'pointer',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                          <polyline points="14 2 14 8 20 8" />
+                          <line x1="16" y1="13" x2="8" y2="13" />
+                          <line x1="16" y1="17" x2="8" y2="17" />
+                        </svg>
+                        View Certificate ↗
+                      </button>
+                    )}
+
+                    {exp.lorUrl && (
+                      <button
+                        onClick={() => setActiveModal({
+                          type: 'lor',
+                          img: exp.lorUrl,
+                          title: `Letter of Recommendation — ${exp.company}`
+                        })}
+                        className="exp-lor-btn"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          padding: '6px 14px',
+                          background: 'var(--pink)',
+                          color: '#000000',
+                          fontWeight: '800',
+                          fontSize: '0.85rem',
+                          borderRadius: '8px',
+                          border: '2px solid var(--line)',
+                          boxShadow: '2px 2px 0 var(--line)',
+                          cursor: 'pointer',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                          <polyline points="14 2 14 8 20 8"></polyline>
+                          <line x1="16" y1="13" x2="8" y2="13"></line>
+                          <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                        Recommendation Letter ↗
+                      </button>
+                    )}
+                  </div>
                 </div>
 
                 <div className="exp-meta-row">
@@ -139,6 +189,64 @@ export default function Experience() {
           ))}
         </div>
       </div>
+
+      {/* Document Modal (Certificate or LOR) */}
+      {activeModal && (
+        <div className="cert-modal-backdrop" onClick={() => setActiveModal(null)}>
+          <div className="cert-modal-content" style={{ maxWidth: '820px', width: '92%' }} onClick={(e) => e.stopPropagation()}>
+            <button className="cert-modal-close" onClick={() => setActiveModal(null)} aria-label="Close modal">
+              &times;
+            </button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '16px', paddingRight: '36px' }}>
+              <h3 className="cert-modal-title" style={{ margin: 0 }}>{activeModal.title}</h3>
+              {activeModal.verifyUrl && (
+                <a
+                  href={activeModal.verifyUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cert-modal-verify-btn"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '6px 14px',
+                    background: 'var(--yellow)',
+                    color: '#000000',
+                    fontWeight: '800',
+                    fontSize: '0.85rem',
+                    borderRadius: '8px',
+                    border: '2px solid var(--line)',
+                    boxShadow: '2px 2px 0 var(--line)',
+                    textDecoration: 'none'
+                  }}
+                >
+                  Verify Online ↗
+                </a>
+              )}
+            </div>
+
+            <div 
+              className="cert-modal-img-wrapper no-scrollbar" 
+              style={{ 
+                maxHeight: '75vh', 
+                overflowY: 'auto', 
+                scrollbarWidth: 'none', 
+                msOverflowStyle: 'none', 
+                background: '#fff', 
+                padding: '8px' 
+              }}
+            >
+              <img 
+                src={activeModal.img} 
+                alt={activeModal.title} 
+                className="cert-modal-img"
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '4px' }}
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
