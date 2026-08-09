@@ -2593,6 +2593,7 @@ html.dark .footer-social-btn {
 
 .highlight-yellow {
   background: var(--yellow);
+  color: #000000;
   padding: 2px 10px;
   border-radius: 8px;
   border: 2.5px solid var(--line);
@@ -2643,6 +2644,7 @@ html.dark .footer-social-btn {
 
 .status-percentage {
   background: var(--yellow);
+  color: #000000;
   padding: 4px 10px;
   border-radius: 20px;
   border: 2px solid var(--line);

@@ -73,7 +73,7 @@ export default function Experience() {
                         gap: '6px',
                         padding: '6px 14px',
                         background: 'var(--yellow)',
-                        color: 'var(--line)',
+                        color: '#000000',
                         fontWeight: '800',
                         fontSize: '0.85rem',
                         borderRadius: '8px',
