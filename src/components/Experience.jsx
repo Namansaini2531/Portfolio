@@ -196,7 +196,7 @@ export default function Experience() {
           <div 
             className="cert-modal-content" 
             style={{ 
-              maxWidth: activeModal.type === 'lor' ? '560px' : '820px', 
+              maxWidth: activeModal.type === 'lor' ? '680px' : '820px', 
               width: '92%' 
             }} 
             onClick={(e) => e.stopPropagation()}
@@ -240,7 +240,7 @@ export default function Experience() {
                 overflowY: 'auto', 
                 scrollbarWidth: 'none', 
                 msOverflowStyle: 'none', 
-                background: '#fff', 
+                background: 'var(--cream)', 
                 padding: '8px' 
               }}
             >
