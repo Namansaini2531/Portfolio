@@ -140,8 +140,35 @@ export default function Certifications() {
             <button className="cert-modal-close" onClick={() => setActiveCert(null)} aria-label="Close modal">
               &times;
             </button>
-            <h3 className="cert-modal-title">{activeCert.title}</h3>
-            <div className="cert-modal-img-wrapper">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '16px', paddingRight: '44px' }}>
+              <h3 className="cert-modal-title" style={{ margin: 0 }}>{activeCert.title}</h3>
+              {activeCert.verifyUrl && (
+                <a
+                  href={activeCert.verifyUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cert-modal-verify-btn"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '5px 12px',
+                    background: 'var(--yellow)',
+                    color: '#000000',
+                    fontWeight: '800',
+                    fontSize: '0.85rem',
+                    borderRadius: '8px',
+                    border: '2px solid var(--line)',
+                    boxShadow: '2px 2px 0 var(--line)',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  Verify Online ↗
+                </a>
+              )}
+            </div>
+            <div className="cert-modal-img-wrapper no-scrollbar">
               <img
                 src={activeCert.image}
                 alt={activeCert.title}

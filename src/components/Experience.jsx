@@ -193,11 +193,18 @@ export default function Experience() {
       {/* Document Modal (Certificate or LOR) */}
       {activeModal && (
         <div className="cert-modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="cert-modal-content" style={{ maxWidth: '820px', width: '92%' }} onClick={(e) => e.stopPropagation()}>
+          <div 
+            className="cert-modal-content" 
+            style={{ 
+              maxWidth: activeModal.type === 'lor' ? '560px' : '820px', 
+              width: '92%' 
+            }} 
+            onClick={(e) => e.stopPropagation()}
+          >
             <button className="cert-modal-close" onClick={() => setActiveModal(null)} aria-label="Close modal">
               &times;
             </button>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '16px', paddingRight: '36px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '16px', paddingRight: '44px' }}>
               <h3 className="cert-modal-title" style={{ margin: 0 }}>{activeModal.title}</h3>
               {activeModal.verifyUrl && (
                 <a
@@ -209,7 +216,7 @@ export default function Experience() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '6px 14px',
+                    padding: '5px 12px',
                     background: 'var(--yellow)',
                     color: '#000000',
                     fontWeight: '800',
@@ -217,7 +224,8 @@ export default function Experience() {
                     borderRadius: '8px',
                     border: '2px solid var(--line)',
                     boxShadow: '2px 2px 0 var(--line)',
-                    textDecoration: 'none'
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap'
                   }}
                 >
                   Verify Online ↗
