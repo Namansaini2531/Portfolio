@@ -5,7 +5,6 @@ const EXPERIENCES = [
   {
     role: 'Product Engineering Intern',
     company: 'MarTechAdda',
-    type: 'Full-time',
     duration: '15 Jun 2026 – 31 Jul 2026 · 1.5 mos',
     location: 'Remote',
     description: 'Contributing to product engineering and full-stack software development with a focus on scalable solutions and performance.',
@@ -19,7 +18,6 @@ const EXPERIENCES = [
   {
     role: 'Member - Social Media Team',
     company: 'IEEE Student Branch GLBITM',
-    type: 'Full-time',
     duration: 'Aug 2026 – Present · 1 mo',
     location: 'Noida, Uttar Pradesh, India · On-site',
     description: 'Managing social media presence, creating promotional content, and boosting digital outreach for IEEE Student Branch GLBITM initiatives and events.',
@@ -30,7 +28,6 @@ const EXPERIENCES = [
   {
     role: 'Member',
     company: 'Rotaract Club of GL Bajaj',
-    type: 'Full-time',
     duration: 'Aug 2025 – Present · 1 yr',
     location: 'Greater Noida · On-site',
     description: 'The Rotaract Club of GL Bajaj is an institution-based service club for young adults at the GL Bajaj Institute of Technology and Management in Greater Noida.',
@@ -71,8 +68,12 @@ export default function Experience() {
                       <h3 className="exp-role">{exp.role}</h3>
                       <div className="exp-company-info">
                         <span className="exp-company">{exp.company}</span>
-                        <span className="exp-dot">•</span>
-                        <span className="exp-type">{exp.type}</span>
+                        {exp.type && (
+                          <>
+                            <span className="exp-dot">•</span>
+                            <span className="exp-type">{exp.type}</span>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
