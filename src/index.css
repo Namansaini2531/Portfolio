@@ -2574,9 +2574,20 @@ html.dark .footer-social-btn {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.4); opacity: 0.3; }
-  100% { transform: scale(0.95); opacity: 0.8; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
 }
 
 .resources-header {
@@ -2652,12 +2663,14 @@ html.dark .footer-social-btn {
 }
 
 /* Hide scrollbars globally on modal image containers */
-.cert-modal-img-wrapper, .no-scrollbar {
+.cert-modal-img-wrapper,
+.no-scrollbar {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }
 
-.cert-modal-img-wrapper::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar {
+.cert-modal-img-wrapper::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
@@ -2762,13 +2775,25 @@ html.dark .footer-social-btn {
 }
 
 @keyframes fadeInModal {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleUpModal {
-  from { transform: scale(0.92); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .progress-bar-track {
@@ -2944,8 +2969,15 @@ html.dark .secret-content-reveal {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Notify Card */
@@ -3027,7 +3059,8 @@ html.dark .secret-content-reveal {
   justify-content: center;
 }
 
-.btn-back-home, .btn-contact-me {
+.btn-back-home,
+.btn-contact-me {
   display: inline-flex;
   align-items: center;
   padding: 12px 22px;
@@ -3049,7 +3082,8 @@ html.dark .secret-content-reveal {
   color: var(--line);
 }
 
-.btn-back-home:hover, .btn-contact-me:hover {
+.btn-back-home:hover,
+.btn-contact-me:hover {
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0 var(--line);
 }
@@ -3058,7 +3092,7 @@ html.dark .secret-content-reveal {
   .resources-title {
     font-size: 2.2rem;
   }
-  
+
   .surprise-box-inner {
     flex-direction: column;
     align-items: center;
@@ -3069,7 +3103,8 @@ html.dark .secret-content-reveal {
     flex-direction: column;
   }
 
-  .notify-input, .notify-btn {
+  .notify-input,
+  .notify-btn {
     width: 100%;
   }
-}
+}
