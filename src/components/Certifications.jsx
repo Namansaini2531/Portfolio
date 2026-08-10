@@ -69,6 +69,7 @@ const CERTIFICATIONS = [
 
 export default function Certifications() {
   const [activeCert, setActiveCert] = useState(null)
+  const [showAll, setShowAll] = useState(false)
 
   // Preload all certificate images in background for instant popups
   useEffect(() => {
@@ -79,6 +80,8 @@ export default function Certifications() {
       }
     })
   }, [])
+
+  const displayedCerts = showAll ? CERTIFICATIONS : CERTIFICATIONS.slice(0, 6)
 
   return (
     <section className="cert-section" id="certifications">
@@ -99,7 +102,7 @@ export default function Certifications() {
 
         {/* Grid */}
         <div className="cert-grid">
-          {CERTIFICATIONS.map((cert, index) => (
+          {displayedCerts.map((cert, index) => (
             <ScrollReveal
               key={cert.id}
               baseRotation={index % 2 === 0 ? -1.5 : 1.5}
@@ -140,6 +143,33 @@ export default function Certifications() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Show More / Show Less Button */}
+        {CERTIFICATIONS.length > 6 && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="cert-show-more-btn"
+              style={{
+                padding: '12px 28px',
+                fontSize: '0.95rem',
+                fontWeight: '800',
+                borderRadius: '12px',
+                border: '2.5px solid var(--line)',
+                background: 'var(--yellow)',
+                color: '#000000',
+                boxShadow: '3px 3px 0 var(--line)',
+                cursor: 'pointer',
+                transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              {showAll ? 'Show Less ↑' : 'Show More ↓'}
+            </button>
+          </div>
+        )}
 
       </div>
 
