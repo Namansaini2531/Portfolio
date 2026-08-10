@@ -1,14 +1,24 @@
 import { useState, useEffect } from 'react'
 import ScrollReveal from './ScrollReveal'
-import { FaAws, FaBrain, FaVrCardboard, FaShieldHalved, FaUserGraduate } from 'react-icons/fa6'
+import { FaAws, FaBrain, FaVrCardboard, FaShieldHalved, FaUserGraduate, FaRobot } from 'react-icons/fa6'
 
 const CERTIFICATIONS = [
+  {
+    id: "cert-7",
+    title: "AI Fluency: Framework & Foundations",
+    issuer: "Anthropic",
+    year: "2026",
+    image: "/anthropic-ai-fluency-certificate.jpg",
+    verifyUrl: "https://verify.skilljar.com/c/oxu4oy6zrkda",
+    icon: <FaRobot size={24} color="#D97706" />
+  },
   {
     id: "cert-1",
     title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
     issuer: "Oracle Cloud Infrastructure",
     year: "2025",
     image: "/oracle-ai-certificate.webp",
+    verifyUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=97D47CB48BB57E0566C3E863CF932D8D0A37AA9F026CF8E51D5C8242A334ABED",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#EA4335">
         <path d="M16.2 3H7.8C3.5 3 0 6.5 0 10.8v2.4C0 17.5 3.5 21 7.8 21h8.4c4.3 0 7.8-3.5 7.8-7.8v-2.4C24 6.5 20.5 3 16.2 3zm4.2 10.2c0 2.3-1.9 4.2-4.2 4.2H7.8C5.5 17.4 3.6 15.5 3.6 13.2v-2.4c0-2.3 1.9-4.2 4.2-4.2h8.4c2.3 0 4.2 1.9 4.2 4.2v2.4z" />
