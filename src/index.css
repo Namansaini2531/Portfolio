@@ -1042,6 +1042,10 @@ html.dark .tape-strip {
   align-items: flex-start;
 }
 
+.hand-input-row.align-start .input-hl-tag {
+  margin-top: 5px;
+}
+
 .input-hl-tag {
   font-family: 'Caveat', cursive, sans-serif;
   font-size: 22px;
