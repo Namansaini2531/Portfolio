@@ -95,8 +95,8 @@ export default function Nav({ currentPath = typeof window !== 'undefined' ? wind
           <a href="#experience" onClick={(e) => handleNavClick(e, '#experience')}>Experience</a>
           <a href="#portfolio" onClick={(e) => handleNavClick(e, '#portfolio')}>Projects</a>
           <a href="#certifications" onClick={(e) => handleNavClick(e, '#certifications')}>Certifications</a>
-          <a 
-            href="/resources" 
+          <a
+            href="/resources"
             className={`nav-link-resources ${isResources ? 'active' : ''}`}
             onClick={(e) => handleNavClick(e, '/resources')}
           >

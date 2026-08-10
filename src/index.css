@@ -2014,11 +2014,16 @@ html.dark .cert-modal-content {
   }
 
   .nav-links a {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
-    padding: 8px 16px;
+    padding: 10px 16px;
     width: 100%;
+    max-width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    margin: 0 auto;
     border-radius: 8px;
   }
 
@@ -3101,6 +3106,7 @@ html.dark .secret-content-reveal {
 }
 
 @media (max-width: 640px) {
+
   .cert-main-title,
   .exp-main-title {
     font-size: 26px;
