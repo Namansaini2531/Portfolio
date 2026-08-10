@@ -22,9 +22,9 @@ const PROJECTS = [
     github: 'https://github.com/Namansaini2531/DBT-Aadhaar-Seeding-Awareness-Portal'
   },
   {
-    label: 'DSA & System Design',
-    title: 'Serverless File Storage System',
-    tech: 'TBA',
+    label: 'Artificial Intelligence',
+    title: 'AI-Based Network Intrusion and Anomaly Detection System for IoT Devices',
+    tech: 'Python, pandas, scikit-learn, PyTorch, FastAPI',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80',
     upcoming: true
   }
