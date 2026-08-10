@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Toolbar from './components/Toolbar'
@@ -44,6 +45,7 @@ export default function App() {
         </>
       )}
       <Footer />
+      <Analytics />
     </>
   )
 }
