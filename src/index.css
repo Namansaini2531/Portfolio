@@ -80,7 +80,7 @@ header.site-header {
   background: var(--cream);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   width: 100%;
 }
 
@@ -1989,8 +1989,8 @@ html.dark .cert-modal-content {
   }
 
   .nav-links {
-    position: fixed;
-    top: 56px;
+    position: absolute;
+    top: 100%;
     left: 0;
     width: 100%;
     background: var(--cream);
@@ -2568,6 +2568,7 @@ html.dark .footer-social-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 }
 
 .nav-link-resources.active {
