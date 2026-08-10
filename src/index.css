@@ -3092,7 +3092,7 @@ html.dark .secret-content-reveal {
   box-shadow: 5px 5px 0 var(--line);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .resources-title {
     font-size: 2.2rem;
   }
@@ -3110,5 +3110,9 @@ html.dark .secret-content-reveal {
   .notify-input,
   .notify-btn {
     width: 100%;
+  }
+
+  .exp-description {
+    display: none;
   }
 }
