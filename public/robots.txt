@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://namansaini.vercel.app/sitemap.xml
+Sitemap: https://namansaini2531.vercel.app/sitemap.xml
