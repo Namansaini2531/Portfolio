@@ -3146,3 +3146,43 @@ html.dark .secret-content-reveal {
     width: 100%;
   }
 }
+
+/* Skills Filter Buttons Styling */
+.skills-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 32px 0 40px;
+}
+
+.filter-btn {
+  background: var(--cream);
+  color: var(--ink);
+  border: 2.5px solid var(--line);
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--line);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.filter-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--line);
+}
+
+.filter-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+.filter-btn.active {
+  background: var(--yellow);
+  color: var(--line);
+  box-shadow: 4px 4px 0 var(--line);
+}
