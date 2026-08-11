@@ -137,12 +137,16 @@ header.site-header {
 
 .nav-links a {
   font-size: 16px;
-  font-weight: 600;
-  color: var(--line);
+  font-weight: 700;
+  color: #000000;
   text-decoration: none;
   padding: 6px 4px;
   transition: color 0.2s ease;
   position: relative;
+}
+
+html.dark .nav-links a {
+  color: var(--ink);
 }
 
 .nav-links a:hover {
