@@ -12,6 +12,7 @@ const EXPERIENCES = [
     certImg: '/martechadda-certificate.webp',
     certificateUrl: 'https://pooshti.martechadda.com/verify/CRTI-9421-L5HX',
     lorUrl: '/martechadda-lor.webp',
+    lorVerifyUrl: 'https://pooshti.martechadda.com/verify/LOR-6446-21QW',
     logoBg: '#3b82f6',
     initials: 'MTA'
   },
@@ -125,7 +126,8 @@ export default function Experience() {
                         onClick={() => setActiveModal({
                           type: 'lor',
                           img: exp.lorUrl,
-                          title: `Letter of Recommendation — ${exp.company}`
+                          title: `Letter of Recommendation — ${exp.company}`,
+                          verifyUrl: exp.lorVerifyUrl
                         })}
                         className="exp-lor-btn"
                         style={{
