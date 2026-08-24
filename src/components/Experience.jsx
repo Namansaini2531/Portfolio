@@ -16,16 +16,7 @@ const EXPERIENCES = [
     logoBg: '#3b82f6',
     initials: 'MTA'
   },
-  {
-    role: 'Member - Social Media Team',
-    company: 'IEEE Student Branch GLBITM',
-    duration: 'Aug 2026 – Present · 1 mo',
-    location: 'Noida, Uttar Pradesh, India · On-site',
-    description: 'Managing social media presence, creating promotional content, and boosting digital outreach for IEEE Student Branch GLBITM initiatives and events.',
-    skills: ['Social Media Marketing', 'Content Strategy', 'Digital Outreach', 'Team Collaboration'],
-    logoBg: '#00629B',
-    initials: 'IEEE'
-  },
+
   {
     role: 'Member',
     company: 'Rotaract Club of GL Bajaj',
