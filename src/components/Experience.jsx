@@ -4,10 +4,10 @@ import ScrollReveal from './ScrollReveal'
 const EXPERIENCES = [
   {
     role: 'Product Engineering Intern',
-    company: 'MarTechAdda',
+    company: 'MarTechAdda Pvt. Ltd.',
     duration: '15 Jun 2026 – 31 Jul 2026 · 1.5 mos',
     location: 'Remote',
-    description: 'Contributing to product engineering and full-stack software development with a focus on scalable solutions and performance.',
+    description: 'Contributed to product engineering and full-stack software development, focusing on building scalable solutions and enhancing application performance.',
     skills: ['Product Engineering', 'Full-Stack Development', 'Problem Solving'],
     certImg: '/martechadda-certificate.webp',
     certificateUrl: 'https://pooshti.martechadda.com/verify/CRTI-9421-L5HX',
