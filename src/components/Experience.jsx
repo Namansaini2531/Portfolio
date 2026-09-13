@@ -3,6 +3,16 @@ import ScrollReveal from './ScrollReveal'
 
 const EXPERIENCES = [
   {
+    role: 'Director Social Media',
+    company: 'Rotaract Club of GL Bajaj',
+    duration: 'Aug 2026 – Present',
+    location: 'Greater Noida · On-site',
+    description: 'Spearheading social media strategy, digital branding, and creative content campaigns to boost engagement and amplify community outreach initiatives.',
+    skills: ['Social Media Strategy', 'Video Editing', 'Leadership', 'Content Creation', 'Community Engagement'],
+    logoBg: '#e11d48',
+    initials: 'RC'
+  },
+  {
     role: 'Product Engineering Intern',
     company: 'MarTechAdda Pvt. Ltd.',
     duration: '15 Jun 2026 – 31 Jul 2026 · 1.5 mos',
@@ -16,11 +26,10 @@ const EXPERIENCES = [
     logoBg: '#3b82f6',
     initials: 'MTA'
   },
-
   {
     role: 'Member',
     company: 'Rotaract Club of GL Bajaj',
-    duration: 'Aug 2025 – Present · 1 yr',
+    duration: 'Aug 2025 – Aug 2026 · 1 yr',
     location: 'Greater Noida · On-site',
     description: 'The Rotaract Club of GL Bajaj is an institution-based service club for young adults at the GL Bajaj Institute of Technology and Management in Greater Noida.',
     skills: ['Soft Skills and Communication', 'Leadership', 'Event Planning'],
