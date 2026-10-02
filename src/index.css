@@ -344,6 +344,9 @@ h1.hero-title {
 
 .mockup-label .curved-arrow {
   margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mockup-wrapper {
@@ -373,7 +376,7 @@ h1.hero-title {
 
 .crop-mark.top-right {
   top: 0;
-  right: 0;
+  right: -8px;
   border-left: none;
   border-bottom: none;
 }
@@ -387,7 +390,7 @@ h1.hero-title {
 
 .crop-mark.bottom-right {
   bottom: 0;
-  right: 0;
+  right: -8px;
   border-left: none;
   border-top: none;
 }

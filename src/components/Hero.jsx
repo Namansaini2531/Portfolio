@@ -76,12 +76,6 @@ export default function Hero() {
           <div className="hero-visual-container">
             <div className="mockup-label hand">
               <span>☺ NAMAN</span>
-              <div className="curved-arrow">
-                <svg width="22" height="18" viewBox="0 0 22 18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <path d="M2,2 C10,2 14,8 14,14" />
-                  <path d="M9,10 L14,15 L19,10" />
-                </svg>
-              </div>
             </div>
 
             <div className="mockup-wrapper">
