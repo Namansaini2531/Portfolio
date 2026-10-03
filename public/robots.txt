@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://namansaini2531.vercel.app/sitemap.xml
+Sitemap: https://namansaini2531.dev/sitemap.xml
+Host: https://namansaini2531.dev

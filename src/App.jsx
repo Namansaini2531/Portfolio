@@ -28,6 +28,29 @@ export default function App() {
 
   const isResources = currentPath === '/resources' || (typeof window !== 'undefined' && window.location.hash === '#resources')
 
+  useEffect(() => {
+    if (isResources) {
+      document.title = "Developer Resources & Blueprints | Naman Saini"
+      const metaDesc = document.querySelector('meta[name="description"]')
+      if (metaDesc) {
+        metaDesc.setAttribute('content', "Curated developer resources, backend blueprints, system design cheat sheets, and code templates by Naman Saini.")
+      }
+      const canonical = document.querySelector('link[rel="canonical"]')
+      if (canonical) {
+        canonical.setAttribute('href', 'https://namansaini2531.dev/resources')
+      }
+    } else {
+      document.title = "Naman Saini (namansaini2531) — Software Developer & Product Engineer"
+      const metaDesc = document.querySelector('meta[name="description"]')
+      if (metaDesc) {
+        metaDesc.setAttribute('content', "Naman Saini (namansaini2531) — Product Engineering Intern & Backend Developer. Explore my portfolio, projects, software engineering experience, skills, and system architecture.")
+      }
+      const canonical = document.querySelector('link[rel="canonical"]')
+      if (canonical) {
+        canonical.setAttribute('href', 'https://namansaini2531.dev/')
+      }
+    }
+  }, [isResources])
   return (
     <>
       <Nav currentPath={currentPath} />
