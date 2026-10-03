@@ -165,12 +165,13 @@ html.dark .nav-links a {
   border-radius: 50%;
   border: 2.5px solid var(--line);
   background: transparent;
+  color: var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-size: 18px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
   box-shadow: 2px 2px 0 var(--line);
 }
 

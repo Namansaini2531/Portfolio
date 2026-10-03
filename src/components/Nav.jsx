@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { FaMoon, FaSun } from 'react-icons/fa6'
 
 export default function Nav({ currentPath = typeof window !== 'undefined' ? window.location.pathname : '/' }) {
   const [theme, setTheme] = useState(() => {
@@ -107,7 +108,11 @@ export default function Nav({ currentPath = typeof window !== 'undefined' ? wind
         {/* Right Side: Actions + Hamburger Button */}
         <div className="nav-actions">
           <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
-            <span>{theme === 'light' ? '☾' : '☀️'}</span>
+            {theme === 'light' ? (
+              <FaMoon size={16} color="var(--line)" />
+            ) : (
+              <FaSun size={17} color="var(--line)" />
+            )}
           </button>
 
           <a href="/Naman_Resume.pdf" target="_blank" rel="noreferrer" className="resume-btn" title="View Naman's Resume (PDF)">
